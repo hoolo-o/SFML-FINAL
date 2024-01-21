@@ -30,4 +30,5 @@ public:
 	bool muerto();
 	Sprite getSprite();
 	float getVida();
+	CircleShape getHitBox();
 };

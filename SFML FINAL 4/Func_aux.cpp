@@ -37,3 +37,10 @@ bool Colision(const sf::Sprite& sprite1, const sf::Sprite& sprite2) {
     return sprite1.getGlobalBounds().intersects(sprite2.getGlobalBounds());
     std::cout << "HIT" << std::endl;
 }
+
+bool ColisionCirculo(const CircleShape& circulo1, const CircleShape& circulo2) {
+    sf::Vector2f cent1 = circulo1.getPosition() + Vector2f(circulo1.getRadius(), circulo1.getRadius());
+    sf::Vector2f cent2 = circulo2.getPosition() + Vector2f(circulo2.getRadius(), circulo2.getRadius());
+    float distan = sqrt(std::pow(cent2.x - cent1.x, 2) + pow(cent2.y - cent1.y, 2));
+    return distan <= circulo1.getRadius() + circulo2.getRadius();
+}

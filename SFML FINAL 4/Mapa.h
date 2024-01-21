@@ -130,7 +130,7 @@ public:
                     }
                     break;
                 case 'B':
-                    if (probabilidad(1)) {
+                    if (probabilidad(3)) {
                         SpriteTiles.setTextureRect(sf::IntRect(7*16, 12*16, 16, 16));
                         SpriteTiles.setPosition(An * 16, Al * 16);
                         comb.draw(SpriteTiles);

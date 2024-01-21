@@ -2,8 +2,7 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 using namespace sf;
-Jugador::Jugador(float vel, float vel_atac, float vida, float danio) : 
-	delay(milliseconds(static_cast<int>(m_vel_atac*1000)))
+Jugador::Jugador(float vel, float vel_atac, float vida, float danio)
 {
 	m_textura.loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/Player.png");
 	m_sprite.setTexture(m_textura);
@@ -104,12 +103,7 @@ float Jugador::getDanio() {
 	return m_danio;
 }
 
-bool Jugador::cooldown() {
-	if (m_clock.getElapsedTime().asMilliseconds() <= m_vel_atac) {
-		return false;
-	}
-	else {
-		return true;
-	}
-	m_clock.restart();
+CircleShape Jugador::getHitBox() {
+	return hitbox;
 }
+

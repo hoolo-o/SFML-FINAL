@@ -32,5 +32,5 @@ public:
 	void ReicioReloj();
 	float tiempoPasado();
 	float getDanio();
-	bool cooldown();
+	CircleShape getHitBox();
 };

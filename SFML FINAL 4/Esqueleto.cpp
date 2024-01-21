@@ -107,3 +107,8 @@ Sprite Esqueleto::getSprite()
 float Esqueleto::getVida() {
     return m_vida;
 }
+
+CircleShape Esqueleto::getHitBox()
+{
+    return hitbox;
+}
