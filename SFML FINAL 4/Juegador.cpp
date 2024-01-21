@@ -23,6 +23,8 @@ Jugador::Jugador(float vel, float vel_atac, float vida, float danio)
 
 	hitbox.setRadius(10);
 	hitbox.setFillColor(Color::Blue);
+	hitbox_me.setRadius(10);
+	hitbox_me.setFillColor(Color::Green);
 
 }
 
@@ -32,6 +34,8 @@ Sprite Jugador::getSprite() {
 
 void Jugador::actualizar()
 {
+	hitbox_me.setPosition(this->verPosicion()-Vector2f(16,-16));
+	hitbox.setPosition(0, 0);
 	if (Keyboard::isKeyPressed(izq)) {
 		izquierda = true;
 		m_sprite.move(-m_vel, 0.0);
@@ -76,6 +80,7 @@ void Jugador::dibujar(RenderWindow& w)
 {
 	w.draw(m_sprite);
 	w.draw(hitbox);
+	w.draw(hitbox_me);
 }
 
 Vector2f Jugador::verPosicion()

@@ -14,6 +14,7 @@ private:
 	bool izquierda;
 
 	CircleShape hitbox;
+	CircleShape hitbox_me;
 
 	float m_vel;
 	float m_vel_atac;

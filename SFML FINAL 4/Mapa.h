@@ -141,7 +141,7 @@ public:
                         SpriteTiles.setPosition(An * 16, Al * 16);
                         comb.draw(SpriteTiles);
                     }
-                    else if (probabilidad(2)) {
+                    else if (probabilidad(1)) {
                         SpriteTiles2.setTextureRect(sf::IntRect(375, 241, 40, 50));
                         SpriteTiles2.setPosition(An * 16, Al * 16);
                         SpriteTiles2.setScale(rand() % 2 ? -1 : 1, 1);
