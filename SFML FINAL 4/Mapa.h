@@ -119,10 +119,15 @@ public:
         sf::Texture tiles;
         SpriteTiles.setTexture(tiles);
         tiles.loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/GRASS+.png");
+        sf::Sprite SpriteTiles2;
+        sf::Texture tiles2;
+        SpriteTiles2.setTexture(tiles2);
+        tiles2.loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/Free-2D-RPG-Desert-Tileset3-720x480-PhotoRoom.png-PhotoRoom.png");
         for (int An = 0; An < ancho; An++) {
             for (int Al = 0; Al < alto; Al++) {
                 switch (campo[An][Al]) {
                 case 'A':
+                    //campo arbustos
                     if (probabilidad(10)) {
                         SpriteTiles.setTextureRect(sf::IntRect(10*16,11*16, 16, 16));
                         SpriteTiles.setPosition(An * 16, Al * 16);
@@ -130,16 +135,31 @@ public:
                     }
                     break;
                 case 'B':
+                    //desierto
                     if (probabilidad(3)) {
                         SpriteTiles.setTextureRect(sf::IntRect(7*16, 12*16, 16, 16));
                         SpriteTiles.setPosition(An * 16, Al * 16);
                         comb.draw(SpriteTiles);
                     }
+                    else if (probabilidad(2)) {
+                        SpriteTiles2.setTextureRect(sf::IntRect(375, 241, 40, 50));
+                        SpriteTiles2.setPosition(An * 16, Al * 16);
+                        SpriteTiles2.setScale(rand() % 2 ? -1 : 1, 1);
+                        comb.draw(SpriteTiles2);
+                    }
+
                     break;
                 case 'C':
+                    //campo piedras
                     if (probabilidad(2)) {
                         SpriteTiles.setTextureRect(sf::IntRect(5*16, 13*16, 16, 16));
                         SpriteTiles.setPosition(An * 16, Al * 16);
+                        comb.draw(SpriteTiles);
+                    }
+                    else if (probabilidad(5)) {
+                        SpriteTiles.setTextureRect(sf::IntRect(12*16,16 *16, 16, 16));
+                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setScale(rand() % 2 ? -1 : 1, 1);
                         comb.draw(SpriteTiles);
                     }
                     break;
