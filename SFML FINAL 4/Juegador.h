@@ -12,6 +12,7 @@ private:
 	Keyboard::Key izq, der, arr, abj, atac, take;
 
 	bool izquierda;
+	bool arriba;
 
 	CircleShape hitbox;
 	CircleShape hitbox_me;

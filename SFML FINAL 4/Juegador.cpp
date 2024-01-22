@@ -55,12 +55,14 @@ void Jugador::actualizar()
 		}
 	}
 	if (Keyboard::isKeyPressed(arr)) {
+		arriba = true;
 		m_sprite.move(0.0, -m_vel);
 		if (Keyboard::isKeyPressed(arr) and Keyboard::isKeyPressed(atac)) {
 			hitbox.setPosition(this->verPosicion() + Vector2f(-7, -13));
 		}
 	}
 	if (Keyboard::isKeyPressed(abj)) {
+		arriba = false;
 		m_sprite.move(0.0, m_vel);
 		if (Keyboard::isKeyPressed(abj) and Keyboard::isKeyPressed(atac)) {
 			hitbox.setPosition(this->verPosicion() + Vector2f(-7, 40));
@@ -72,6 +74,10 @@ void Jugador::actualizar()
 			if (izquierda) {
 				m_sprite.setOrigin(15.5, 0);
 				m_sprite.setScale(-1.5f, 1.5f);
+				hitbox.setPosition(this->verPosicion() + Vector2f(-34, 15));
+			}
+			else {
+				hitbox.setPosition(this->verPosicion() + Vector2f(18, 15));
 			}
 		}
 	}

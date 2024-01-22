@@ -112,3 +112,22 @@ CircleShape Esqueleto::getHitBox()
 {
     return hitbox;
 }
+
+Vector2f Esqueleto::EvitarSuperPos(sf::CircleShape C)
+{
+    Vector2f disV = C.getPosition() - hitbox.getPosition();
+    float dis = sqrt(disV.x * disV.x + disV.y * disV.y);
+    float radSum = C.getRadius() + hitbox.getRadius();
+    if (dis < radSum) {
+        return disV - ((disV / dis) * radSum);
+    }
+}
+
+void Esqueleto::mover(sf::Vector2f correccion)
+{
+    SpriteEsqueleto.move(correccion);
+}
+
+Vector2f Esqueleto::getHitBox_Pos() {
+    return hitbox.getPosition();
+}

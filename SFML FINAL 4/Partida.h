@@ -15,7 +15,7 @@ private:
 	Sprite m1S;
 	Texture* T = new sf::Texture();
 	vector<Esqueleto> ve1;
-	int num_esq = 60;
+	int num_esq = 20;
 public:
 	Partida();
 	void actualizar(Juego& j) override;

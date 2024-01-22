@@ -20,6 +20,11 @@ void Partida::actualizar(Juego& j)
 	}
 	for (int x = 0;x < ve1.size();x++) {
 		ve1[x].perseguirJugador(p1.verPosicion()-Vector2f(10.0f,0.0f));
+		for (int Col = 0; Col < ve1.size();Col++) {
+			if (ColisionCirculo(ve1[x].getHitBox(),ve1[Col].getHitBox())) {
+				cout << "colision" << endl;
+			}
+		}
 		if (ColisionCirculo(p1.getHitBox(),ve1[x].getHitBox()) and p1.atacando()) {
 			cout << "Hit a " << x << endl;
 			ve1[x].Danio(p1.getDanio());
