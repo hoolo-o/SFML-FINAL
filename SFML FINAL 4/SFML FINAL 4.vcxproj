@@ -35,12 +35,6 @@
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Partida.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\imagenes\enemigo.png" />
-    <Image Include="..\..\..\imagenes\Free-2D-RPG-Desert-Tileset3-720x480.jpg" />
-    <Image Include="..\..\..\imagenes\GRASS+.png" />
-    <Image Include="..\..\..\imagenes\Player.png" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

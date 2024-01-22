@@ -57,18 +57,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\imagenes\Player.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\imagenes\GRASS+.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\imagenes\Free-2D-RPG-Desert-Tileset3-720x480.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\imagenes\enemigo.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
 </Project>
