@@ -45,7 +45,6 @@ bool ColisionCirculo(const CircleShape& circulo1, const CircleShape& circulo2) {
     return distan <= circulo1.getRadius() + circulo2.getRadius();
 }
 
-
 Vector2f calcularOffset(const CircleShape& circle1, const CircleShape& circle2, float velocidad) {
     // Obtener las posiciones de los círculos
     Vector2f pos1 = circle1.getPosition();

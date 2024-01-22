@@ -118,11 +118,11 @@ public:
         sf::Sprite SpriteTiles;
         sf::Texture tiles;
         SpriteTiles.setTexture(tiles);
-        tiles.loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/GRASS+.png");
+        tiles.loadFromFile("imagenes/GRASS+.png");
         sf::Sprite SpriteTiles2;
         sf::Texture tiles2;
         SpriteTiles2.setTexture(tiles2);
-        tiles2.loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/Free-2D-RPG-Desert-Tileset3-720x480-PhotoRoom.png-PhotoRoom.png");
+        tiles2.loadFromFile("imagenes/Free-2D-RPG-Desert-Tileset3-720x480-PhotoRoom.png-PhotoRoom.png");
         for (int An = 0; An < ancho; An++) {
             for (int Al = 0; Al < alto; Al++) {
                 switch (campo[An][Al]) {

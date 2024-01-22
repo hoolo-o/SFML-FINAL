@@ -2,7 +2,7 @@
 
 Partida::Partida() : p1(2, 1, 1, 1)
 {
-	T->loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/enemigo.png");
+	T->loadFromFile("imagenes/enemigo.png");
 	m1.generarMapa();
 	m1.SpawnE();
 	m1.mostrarMapa();

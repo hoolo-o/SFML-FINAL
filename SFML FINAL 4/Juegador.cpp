@@ -4,7 +4,7 @@ using namespace std;
 using namespace sf;
 Jugador::Jugador(float vel, float vel_atac, float vida, float danio)
 {
-	m_textura.loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/Player.png");
+	m_textura.loadFromFile("imagenes/Player.png");
 	m_sprite.setTexture(m_textura);
 	m_sprite.setTextureRect(IntRect(1,1,31,31));
 	m_sprite.setScale(1.5f,1.5f);
