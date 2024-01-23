@@ -48,3 +48,4 @@ void Partida::dibujar(RenderWindow& w)
 		}
 		T1.dibujar(w);
 }
+//si
