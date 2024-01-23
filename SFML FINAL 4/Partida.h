@@ -5,6 +5,7 @@
 #include "Mapa.h"
 #include "Esqueleto.h"
 #include "Func_aux.h"
+#include "Textos.h"
 using namespace sf;
 using namespace std;
 
@@ -16,6 +17,8 @@ private:
 	Texture* T = new sf::Texture();
 	vector<Esqueleto> ve1;
 	int num_esq = 20;
+	TextHandler T1;
+	int contador_ronda = 1;
 public:
 	Partida();
 	void actualizar(Juego& j) override;

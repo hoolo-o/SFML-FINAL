@@ -56,5 +56,8 @@
     <ClInclude Include="Partida.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Textos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

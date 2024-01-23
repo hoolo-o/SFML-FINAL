@@ -17,9 +17,9 @@ private:
 	float m_vel;
 	float m_vel_atac;
 	float m_vida;
-	float m_danio;
+	int m_danio;
 public:
-	Esqueleto(float vel, float vel_atac, float vida, float danio, Vector2f pos, Texture* TE);
+	Esqueleto(float vel, float vel_atac, float vida, int danio, Vector2f pos, Texture* TE);
 	void actualizar();
 	void dibujar(RenderWindow& w);
 	Vector2f verPosicion();
@@ -34,4 +34,5 @@ public:
 	Vector2f EvitarSuperPos(sf::CircleShape C);
 	void mover(sf::Vector2f correccion);
 	Vector2f getHitBox_Pos();
+	int getDanio();
 };

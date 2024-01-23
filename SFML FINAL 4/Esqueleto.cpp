@@ -1,7 +1,7 @@
 #include "Esqueleto.h"
 
 
-Esqueleto::Esqueleto(float vel, float vel_atac, float vida, float danio, Vector2f pos, Texture*TE)
+Esqueleto::Esqueleto(float vel, float vel_atac, float vida, int danio, Vector2f pos, Texture*TE)
 {
     m_vel = vel;
     m_vel_atac = vel_atac;
@@ -130,4 +130,8 @@ void Esqueleto::mover(sf::Vector2f correccion)
 
 Vector2f Esqueleto::getHitBox_Pos() {
     return hitbox.getPosition();
+}
+
+int Esqueleto::getDanio() {
+    return m_danio;
 }

@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 using namespace sf;
-Jugador::Jugador(float vel, float vel_atac, float vida, float danio)
+Jugador::Jugador(float vel, float vel_atac, int vida, float danio)
 {
 	m_textura.loadFromFile("imagenes/Player.png");
 	m_sprite.setTexture(m_textura);
@@ -116,4 +116,16 @@ float Jugador::getDanio() {
 
 CircleShape Jugador::getHitBox() {
 	return hitbox;
+}
+
+int Jugador::GetVida() {
+	return m_vida;
+}
+
+void Jugador::danio(int Danio) {
+	m_vida = m_vida - Danio;
+}
+
+CircleShape Jugador::getHitbox_me() {
+	return hitbox_me;
 }

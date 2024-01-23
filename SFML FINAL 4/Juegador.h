@@ -19,12 +19,12 @@ private:
 
 	float m_vel;
 	float m_vel_atac;
-	float m_vida;
+	int m_vida;
 	float m_danio;
 
 public:
 	Jugador();
-	Jugador(float vel, float vel_atac, float vida, float danio);
+	Jugador(float vel, float vel_atac, int vida, float danio);
 	void actualizar();
 	void dibujar(RenderWindow &w);
 	Vector2f verPosicion();
@@ -35,4 +35,7 @@ public:
 	float tiempoPasado();
 	float getDanio();
 	CircleShape getHitBox();
+	int GetVida();
+	void danio(int Danio);
+	CircleShape getHitbox_me();
 };

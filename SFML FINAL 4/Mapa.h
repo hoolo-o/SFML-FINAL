@@ -2,6 +2,7 @@
 /////////////////////terminar mapa///////////////////////////
 #include <iostream>
 #include <random>
+#include <vector>
 #include <SFML/Graphics.hpp>
 
 class Mapa {
@@ -216,5 +217,6 @@ public:
     char* getCampo() {
         return &campo[0][0];
     }
+
 };
 
