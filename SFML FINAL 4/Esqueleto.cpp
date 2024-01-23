@@ -23,7 +23,7 @@ void Esqueleto::actualizar()
 
 void Esqueleto::dibujar(RenderWindow& w)
 {
-    w.draw(hitbox);
+    //w.draw(hitbox);
     w.draw(SpriteEsqueleto);
 }
 
@@ -134,4 +134,9 @@ Vector2f Esqueleto::getHitBox_Pos() {
 
 int Esqueleto::getDanio() {
     return m_danio;
+}
+
+int Esqueleto::getValorEsqueleto()
+{
+    return Valor;
 }

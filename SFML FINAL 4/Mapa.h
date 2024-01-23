@@ -24,7 +24,6 @@ private:
     sf::Sprite spawn;
 public:
     Mapa() {
-        
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_int_distribution<int> distribX(0, ancho - 1);
@@ -190,11 +189,10 @@ public:
         const int COLUMNAS = 44;
         const int TAMANIO_CIRCULO = 5;
         srand(static_cast<unsigned int>(time(0)));
-        // Generar coordenadas aleatorias para el centro del círculo
+
         int centroFila = rand() % (FILAS - 2 * TAMANIO_CIRCULO) + TAMANIO_CIRCULO;
         int centroColumna = rand() % (COLUMNAS - 2 * TAMANIO_CIRCULO) + TAMANIO_CIRCULO;
 
-        // Agregar el círculo a la matriz
         for (int i = -TAMANIO_CIRCULO; i <= TAMANIO_CIRCULO; ++i) {
             for (int j = -TAMANIO_CIRCULO; j <= TAMANIO_CIRCULO; ++j) {
                 if (i * i + j * j <= TAMANIO_CIRCULO * TAMANIO_CIRCULO) {
@@ -213,7 +211,7 @@ public:
         Combinar();
         return mapa;
     }
-
+    
     char* getCampo() {
         return &campo[0][0];
     }

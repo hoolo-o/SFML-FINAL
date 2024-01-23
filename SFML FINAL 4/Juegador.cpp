@@ -25,7 +25,6 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio)
 	hitbox.setFillColor(Color::Blue);
 	hitbox_me.setRadius(10);
 	hitbox_me.setFillColor(Color::Green);
-
 }
 
 Sprite Jugador::getSprite() {
@@ -34,13 +33,17 @@ Sprite Jugador::getSprite() {
 
 void Jugador::actualizar()
 {
+	if (m_clock.getElapsedTime().asSeconds() < 0.2f) {
+		return;
+	}
+	m_sprite.setTextureRect(IntRect(1, 1, 31, 31));
 	hitbox_me.setPosition(this->verPosicion()-Vector2f(16,-16));
 	hitbox.setPosition(0, 0);
 	if (Keyboard::isKeyPressed(izq)) {
 		izquierda = true;
 		m_sprite.move(-m_vel, 0.0);
 		m_sprite.setScale(1.5f, 1.5f);
-		m_sprite.setTextureRect(IntRect(4*31, 1, 31, 31));
+		m_sprite.setTextureRect(IntRect(4*31, 0, 31, 31));
 		if (Keyboard::isKeyPressed(izq) and Keyboard::isKeyPressed(atac)) {
 			hitbox.setPosition(this->verPosicion()+Vector2f(-34,15));
 		}
@@ -69,6 +72,7 @@ void Jugador::actualizar()
 		}
 	}
 	if (Keyboard::isKeyPressed(atac)) {
+		m_clock.restart();
 			m_sprite.setScale(1.5f, 1.5f);
 			m_sprite.setTextureRect(IntRect(2, 3.2 * 31, 31, 31));
 			if (izquierda) {
@@ -85,8 +89,8 @@ void Jugador::actualizar()
 void Jugador::dibujar(RenderWindow& w)
 {
 	w.draw(m_sprite);
-	w.draw(hitbox);
-	w.draw(hitbox_me);
+	//w.draw(hitbox);
+	//w.draw(hitbox_me);
 }
 
 Vector2f Jugador::verPosicion()

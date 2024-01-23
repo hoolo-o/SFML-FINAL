@@ -24,9 +24,9 @@ public:
 	void dibujar(RenderWindow &w) {
 		w.draw(Texto1);
 	}
-	void actualizar(std::vector<Esqueleto> v, int contador_ronda, int vida_p1) {
+	void actualizar(std::vector<Esqueleto> v, int contador_ronda, int vida_p1, int Puntos) {
 		ss1.str("");
-		ss1 << "Enemigos: " << v.size() << "   Ronda: " << contador_ronda << "  Vida: " << vida_p1;
+		ss1 << "Enemigos: " << v.size() << "   Ronda: " << contador_ronda << "  Vida: " << vida_p1 << "  Puntaje: " << Puntos;
 		Texto1.setString(ss1.str());
 	}
 };

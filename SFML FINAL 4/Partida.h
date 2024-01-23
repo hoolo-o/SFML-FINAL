@@ -18,6 +18,7 @@ private:
 	vector<Esqueleto> ve1;
 	int num_esq = 20;
 	TextHandler T1;
+	int Puntos = 0;
 	int contador_ronda = 1;
 public:
 	Partida();

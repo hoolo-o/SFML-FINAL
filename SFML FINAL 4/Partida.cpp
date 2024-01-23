@@ -13,18 +13,22 @@ Partida::Partida() : p1(2, 1, 20, 1)
 
 void Partida::actualizar(Juego& j)
 {
-	T1.actualizar(ve1, contador_ronda, p1.GetVida());
+	T1.actualizar(ve1, contador_ronda, p1.GetVida(), Puntos);
+
 	p1.actualizar();
 	if (ve1.size() == 0) {
 		num_esq += 2;
-		ve1 = EsqueletosBordes(num_esq,T,m1.getCampo());
+		ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
 		contador_ronda++;
 	}
 	for (int x = 0;x < ve1.size();x++) {
-		ve1[x].perseguirJugador(p1.verPosicion()-Vector2f(10.0f,0.0f));
+		
+		ve1[x].perseguirJugador(p1.verPosicion() - Vector2f(10.0f, 0.0f));
+		
 		for (int Col = 0; Col < ve1.size();Col++) {
+			//ve1[Col].mover(calcularOffset(ve1[x].getHitBox(),ve1[Col].getHitBox(),0.1f));
 		}
-		if (ColisionCirculo(p1.getHitBox(),ve1[x].getHitBox()) and p1.atacando()) {
+		if (ColisionCirculo(p1.getHitBox(), ve1[x].getHitBox()) and p1.atacando()) {
 			cout << "Hit a " << x << endl;
 			ve1[x].Danio(p1.getDanio());
 		}
@@ -33,7 +37,8 @@ void Partida::actualizar(Juego& j)
 			cout << "vida: " << p1.GetVida() << endl;
 		}
 		if (ve1[x].muerto()) {
-			ve1.erase(ve1.begin()+x);
+			Puntos += ve1[x].getValorEsqueleto();
+			ve1.erase(ve1.begin() + x);
 		}
 	}
 }

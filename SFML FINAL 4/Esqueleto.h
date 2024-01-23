@@ -14,6 +14,8 @@ private:
 
 	Sprite SpriteEsqueleto;
 
+	int Valor = 5;
+
 	float m_vel;
 	float m_vel_atac;
 	float m_vida;
@@ -35,4 +37,5 @@ public:
 	void mover(sf::Vector2f correccion);
 	Vector2f getHitBox_Pos();
 	int getDanio();
+	int getValorEsqueleto();
 };
