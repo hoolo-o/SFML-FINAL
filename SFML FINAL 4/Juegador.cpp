@@ -117,4 +117,3 @@ float Jugador::getDanio() {
 CircleShape Jugador::getHitBox() {
 	return hitbox;
 }
-
