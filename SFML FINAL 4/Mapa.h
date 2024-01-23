@@ -152,7 +152,7 @@ public:
                     break;
                 case 'C':
                     //campo piedras
-                    if (probabilidad(2)) {
+                    if (probabilidad(5)) {
                         SpriteTiles.setTextureRect(sf::IntRect(5*16, 13*16, 16, 16));
                         SpriteTiles.setPosition(An * 16, Al * 16);
                         comb.draw(SpriteTiles);

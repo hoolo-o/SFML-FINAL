@@ -40,7 +40,6 @@ void Partida::actualizar(Juego& j)
 
 void Partida::dibujar(RenderWindow& w)
 {
-	if (p1.GetVida() > 0) {
 		w.clear(Color::Green);
 		m1.dibujar(w);
 		p1.dibujar(w);
@@ -48,9 +47,4 @@ void Partida::dibujar(RenderWindow& w)
 			e1.dibujar(w);
 		}
 		T1.dibujar(w);
-	}
-	else {
-		w.clear(Color::Red);
-	}
-
 }
