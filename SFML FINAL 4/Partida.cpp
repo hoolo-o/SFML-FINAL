@@ -14,7 +14,7 @@ Partida::Partida() : p1(2, 1, 20, 1)
 void Partida::actualizar(Juego& j)
 {
 	T1.actualizar(ve1, contador_ronda, p1.GetVida(), Puntos);
-
+	
 	p1.actualizar();
 	if (ve1.size() == 0) {
 		//sumar esqueletos por ronda

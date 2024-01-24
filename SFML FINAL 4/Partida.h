@@ -6,6 +6,7 @@
 #include "Esqueleto.h"
 #include "Func_aux.h"
 #include "Textos.h"
+#include <SFML/Audio.hpp>
 using namespace sf;
 using namespace std;
 
