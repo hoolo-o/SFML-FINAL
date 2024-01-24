@@ -33,6 +33,9 @@ Sprite Jugador::getSprite() {
 
 void Jugador::actualizar()
 {
+	//verificar teclas de forma constante
+	//mover jugador y cambiar textura
+	//definir posicion de gitbox/ataque segun movimiento
 	if (m_clock.getElapsedTime().asSeconds() < 0.2f) {
 		return;
 	}

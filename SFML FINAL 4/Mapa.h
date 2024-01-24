@@ -24,8 +24,11 @@ private:
     sf::Sprite spawn;
 public:
     Mapa() {
+        //creacion de semilla aleatoria para distribuir en el mapa los biomas de forma heterogenea
         std::random_device rd;
+        //semilla
         std::mt19937 gen(rd());
+        //distribuir en el mapa los biomas de forma heterogenea
         std::uniform_int_distribution<int> distribX(0, ancho - 1);
         std::uniform_int_distribution<int> distribY(0, alto - 1);
 
@@ -39,6 +42,7 @@ public:
     }
 
     void generarMapa() {
+        //generacion textura voronoi a partir de la ubicacion de los biomas
         for (int i = 0; i < ancho; i++) {
             for (int j = 0; j < alto; j++) {
                 char mas_cercano = '.';
@@ -62,6 +66,7 @@ public:
     }
 
     void mostrarMapa() {
+        //muestra de mapa letras en consola
         for (int i = 0; i < ancho; i++) {
             for (int j = 0; j < alto; j++) {
                 std::cout << campo[i][j] << " ";
@@ -71,6 +76,8 @@ public:
     }
 
     void Combinar() {
+        //acomodar sprites de los biomas dependiendo la la letra A B C X
+        //crea textura en blanco
         comb.create(ancho * 32, alto * 32);
         std::cout << "combinacion" << std::endl;                
         sf::Sprite SpriteTiles;
@@ -83,6 +90,7 @@ public:
                 case 'A':
                     SpriteTiles.setTextureRect(sf::IntRect(64, 0, 16, 16));
                     SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
+                    //agrega el nuevo tile a la textura 'comb'
                     comb.draw(SpriteTiles);
                     std::cout << "A ";
                     break;
@@ -107,13 +115,15 @@ public:
             }
             std::cout << std::endl;
         }
+        //guarda los cambios de la textura al finalizar
         comb.display();
-
+        //asigna un sprite a la textura
         sf::Sprite combiSprite(comb.getTexture());
         mapa = combiSprite;
     }
 
     void Decoracion() {
+        //crea nueva textura en blanco
         combDec.create(ancho * 32, alto * 32);
         sf::Sprite SpriteTiles;
         sf::Texture tiles;
@@ -185,17 +195,18 @@ public:
     }
 
     void SpawnE() {
-        const int FILAS = 75;
-        const int COLUMNAS = 44;
-        const int TAMANIO_CIRCULO = 5;
+        int filas = 75;
+        int columnas = 44;
+        int tamanio_circulo = 5;
+        //generacion de semilla aleatoria dependiendo la fecha actual
         srand(static_cast<unsigned int>(time(0)));
 
-        int centroFila = rand() % (FILAS - 2 * TAMANIO_CIRCULO) + TAMANIO_CIRCULO;
-        int centroColumna = rand() % (COLUMNAS - 2 * TAMANIO_CIRCULO) + TAMANIO_CIRCULO;
-
-        for (int i = -TAMANIO_CIRCULO; i <= TAMANIO_CIRCULO; ++i) {
-            for (int j = -TAMANIO_CIRCULO; j <= TAMANIO_CIRCULO; ++j) {
-                if (i * i + j * j <= TAMANIO_CIRCULO * TAMANIO_CIRCULO) {
+        int centroFila = rand() % (filas - 2 * tamanio_circulo) + tamanio_circulo;
+        int centroColumna = rand() % (columnas - 2 * tamanio_circulo) + tamanio_circulo;
+        //dibujo circulo  de X
+        for (int i = -tamanio_circulo; i <= tamanio_circulo; ++i) {
+            for (int j = -tamanio_circulo; j <= tamanio_circulo; ++j) {
+                if (i * i + j * j <= tamanio_circulo * tamanio_circulo) {
                     campo[centroFila + i][centroColumna + j] = 'X';
                 }
             }

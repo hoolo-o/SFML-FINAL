@@ -1,5 +1,6 @@
 #include "Func_aux.h"
 #include <iostream>
+
 std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* mapa)
 {
     std::vector<Esqueleto> esqueletos;
@@ -22,15 +23,18 @@ std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* map
     }
     return esqueletos;
 }
+
 bool probabilidad(int prob)
 {
     int aleatorio = std::rand() % 100;
     return aleatorio < prob;
 }
+
 bool Colision(const sf::Sprite& sprite1, const sf::Sprite& sprite2) {
     return sprite1.getGlobalBounds().intersects(sprite2.getGlobalBounds());
     std::cout << "HIT" << std::endl;
 }
+
 bool ColisionCirculo(const CircleShape& circulo1, const CircleShape& circulo2) {
     //posicion circulos
     sf::Vector2f cent1 = circulo1.getPosition() + Vector2f(circulo1.getRadius(), circulo1.getRadius());
@@ -40,13 +44,15 @@ bool ColisionCirculo(const CircleShape& circulo1, const CircleShape& circulo2) {
     //verificar colision
     return distan <= circulo1.getRadius() + circulo2.getRadius();
 }
+
 Vector2f resolverColision(const CircleShape& cir1, const CircleShape& cir2) {
+    //calculo superposicion
     float Superpos = cir1.getRadius() + cir2.getRadius() - sqrt(pow(cir1.getPosition().x - cir2.getPosition().x, 2) +
         pow(cir1.getPosition().y - cir2.getPosition().y, 2));
+    //calculo angulos entre centros ciruclos
     float angulo = atan2(cir1.getPosition().y - cir2.getPosition().y, cir1.getPosition().x - cir2.getPosition().x);
-
+    //calculo desplazamiento
     float moverX = Superpos * cos(angulo) / 2.0f;
     float moverY = Superpos * sin(angulo) / 2.0f;
-
     return Vector2f(moverX, moverY);
 }

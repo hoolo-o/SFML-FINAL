@@ -17,6 +17,7 @@ void Partida::actualizar(Juego& j)
 
 	p1.actualizar();
 	if (ve1.size() == 0) {
+		//sumar esqueletos por ronda
 		num_esq += 2;
 		ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
 		contador_ronda++;
@@ -27,6 +28,7 @@ void Partida::actualizar(Juego& j)
 		
 		for (int Col = 0; Col < ve1.size();Col++) {
 			if (ColisionCirculo(ve1[x].getHitBox(), ve1[Col].getHitBox())) {
+				//verifica colision esqueletos y corrije
 				ajuste = resolverColision(ve1[x].getHitBox(), ve1[Col].getHitBox());
 				ve1[x].mover(ajuste);
 				ve1[Col].mover(-ajuste);
@@ -38,10 +40,12 @@ void Partida::actualizar(Juego& j)
 
 		}
 		if (ColisionCirculo(p1.getHitbox_me(), ve1[x].getHitBox())) {
+			//verifica danio a jugador
 			p1.danio(ve1[x].getDanio());
 			cout << "vida: " << p1.GetVida() << endl;
 		}
 		if (ve1[x].muerto()) {
+			//verifica si esqueletos estan muertos y elimina
 			Puntos += ve1[x].getValorEsqueleto();
 			ve1.erase(ve1.begin() + x);
 		}

@@ -33,6 +33,7 @@ Vector2f Esqueleto::verPosicion()
 }
 
 void Esqueleto::CambiarSpriteDireccion(int pos) {
+    //modifica sprite dependiendo las coordenadas del jugador
     float coordX = 0;
     float coordY = 0;
     if (pos == 3) {
@@ -56,7 +57,9 @@ void Esqueleto::CambiarSpriteDireccion(int pos) {
 }
 
 void Esqueleto::perseguirJugador(const sf::Vector2f& posicionJugador) {
+    //llama a funcion anterior y modifica la pos persiguiendo al jugador
     sf::Vector2f direccion = posicionJugador - SpriteEsqueleto.getPosition();
+    //normalizar vector
     float magnitud = std::sqrt(direccion.x * direccion.x + direccion.y * direccion.y);
     direccion /= magnitud;
 
@@ -76,10 +79,12 @@ void Esqueleto::perseguirJugador(const sf::Vector2f& posicionJugador) {
 
     CambiarSpriteDireccion(orientacion);
     SpriteEsqueleto.move(direccion * m_vel);
+    //posiciona hitbox sobre el esqueleto
     hitbox.setPosition(SpriteEsqueleto.getPosition()-Vector2f(-10.0f,-10.0f));
 }
 
 void Esqueleto::setVelocidadAleatoria(float minVel, float maxVel) {
+    //conseguir numeros aleatorios en un rango
     m_vel = static_cast<float>(rand()) / static_cast<float>(RAND_MAX / (maxVel - minVel)) + minVel;
 }
 
@@ -114,6 +119,7 @@ CircleShape Esqueleto::getHitBox()
 
 Vector2f Esqueleto::EvitarSuperPos(sf::CircleShape C)
 {
+    //calcula distancia entre ambos gitbox
     Vector2f disV = C.getPosition() - hitbox.getPosition();
     float dis = sqrt(disV.x * disV.x + disV.y * disV.y);
     float radSum = C.getRadius() + hitbox.getRadius();
