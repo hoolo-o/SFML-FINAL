@@ -35,6 +35,7 @@ void Partida::actualizar(Juego& j)
 		if (ColisionCirculo(p1.getHitBox(), ve1[x].getHitBox()) and p1.atacando()) {
 			cout << "Hit a " << x << endl;
 			ve1[x].Danio(p1.getDanio());
+
 		}
 		if (ColisionCirculo(p1.getHitbox_me(), ve1[x].getHitBox())) {
 			p1.danio(ve1[x].getDanio());

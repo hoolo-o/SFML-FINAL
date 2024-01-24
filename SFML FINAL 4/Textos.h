@@ -9,6 +9,7 @@ class Textos {
 private:
 	stringstream ss1;
 	Text Texto1;
+	Text Texto2;
 	Font fuente;
 public:
 	Textos() {
@@ -19,10 +20,17 @@ public:
 		Texto1.setFillColor(Color::Black);
 		Texto1.setOutlineColor(Color::White);
 		Texto1.setOutlineThickness(1);
+
+		Texto2.setFont(fuente);
+		Texto2.setCharacterSize(7);
+		Texto2.setFillColor(Color::Red);
+		Texto2.setOutlineColor(Color::Black);
+		Texto2.setOutlineThickness(0.5f);
 	}
 
 	void dibujar(RenderWindow &w) {
 		w.draw(Texto1);
+		w.draw(Texto2);
 	}
 	void actualizar(std::vector<Esqueleto> v, int contador_ronda, int vida_p1, int Puntos) {
 		ss1.str("");

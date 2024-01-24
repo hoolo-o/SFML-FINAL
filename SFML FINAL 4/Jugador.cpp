@@ -89,8 +89,8 @@ void Jugador::actualizar()
 void Jugador::dibujar(RenderWindow& w)
 {
 	w.draw(m_sprite);
-	//w.draw(hitbox);
-	//w.draw(hitbox_me);
+	w.draw(hitbox);
+	w.draw(hitbox_me);
 }
 
 Vector2f Jugador::verPosicion()

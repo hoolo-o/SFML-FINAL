@@ -20,6 +20,7 @@ private:
 	float m_vel_atac;
 	float m_vida;
 	int m_danio;
+
 public:
 	Esqueleto(float vel, float vel_atac, float vida, int danio, Vector2f pos, Texture* TE);
 	void actualizar();

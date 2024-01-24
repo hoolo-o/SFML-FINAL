@@ -139,3 +139,4 @@ int Esqueleto::getValorEsqueleto()
 {
     return Valor;
 }
+
