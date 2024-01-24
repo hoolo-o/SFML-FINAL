@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Esqueleto.cpp" />
     <ClCompile Include="Func_aux.cpp" />
-    <ClCompile Include="Juegador.cpp" />
+    <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Partida.cpp" />
@@ -30,7 +30,7 @@
     <ClInclude Include="Escena.h" />
     <ClInclude Include="Esqueleto.h" />
     <ClInclude Include="Func_aux.h" />
-    <ClInclude Include="Juegador.h" />
+    <ClInclude Include="Jugador.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Partida.h" />

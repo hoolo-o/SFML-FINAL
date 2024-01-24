@@ -1,4 +1,4 @@
-#include "Juegador.h"
+#include "Jugador.h"
 #include <SFML/Graphics.hpp>
 using namespace std;
 using namespace sf;

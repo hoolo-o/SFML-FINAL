@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Juegador.h"
+#include "Jugador.h"
 #include "Escena.h"
 #include "Mapa.h"
 #include "Esqueleto.h"
