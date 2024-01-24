@@ -33,7 +33,7 @@ public:
 	float getVelAtaque();
 	void ReicioReloj();
 	float tiempoPasado();
-	float getDanio();
+	int getDanio();
 	CircleShape getHitBox();
 	int GetVida();
 	void danio(int Danio);

@@ -23,7 +23,7 @@ void Esqueleto::actualizar()
 
 void Esqueleto::dibujar(RenderWindow& w)
 {
-    w.draw(hitbox);
+    //w.draw(hitbox);
     w.draw(SpriteEsqueleto);
 }
 
@@ -31,7 +31,6 @@ Vector2f Esqueleto::verPosicion()
 {
 	return SpriteEsqueleto.getPosition();
 }
-
 
 void Esqueleto::CambiarSpriteDireccion(int pos) {
     float coordX = 0;
@@ -77,7 +76,7 @@ void Esqueleto::perseguirJugador(const sf::Vector2f& posicionJugador) {
 
     CambiarSpriteDireccion(orientacion);
     SpriteEsqueleto.move(direccion * m_vel);
-    hitbox.setPosition(SpriteEsqueleto.getPosition()-Vector2f(-7.0f,-10.0f));
+    hitbox.setPosition(SpriteEsqueleto.getPosition()-Vector2f(-10.0f,-10.0f));
 }
 
 void Esqueleto::setVelocidadAleatoria(float minVel, float maxVel) {

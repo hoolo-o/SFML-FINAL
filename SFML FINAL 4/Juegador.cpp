@@ -114,7 +114,7 @@ float Jugador::tiempoPasado() {
 	return m_clock.getElapsedTime().asSeconds();
 }
 
-float Jugador::getDanio() {
+int Jugador::getDanio() {
 	return m_danio;
 }
 

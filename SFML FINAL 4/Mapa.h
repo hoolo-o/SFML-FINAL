@@ -82,25 +82,25 @@ public:
                 switch (campo[An][Al]) {
                 case 'A':
                     SpriteTiles.setTextureRect(sf::IntRect(64, 0, 16, 16));
-                    SpriteTiles.setPosition(An * 16, Al * 16);
+                    SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                     comb.draw(SpriteTiles);
                     std::cout << "A ";
                     break;
                 case 'B':
                     SpriteTiles.setTextureRect(sf::IntRect(0, 32, 16, 16));
-                    SpriteTiles.setPosition(An * 16, Al * 16);
+                    SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                     comb.draw(SpriteTiles);
                     std::cout << "B ";
                     break;
                 case 'C':
                     SpriteTiles.setTextureRect(sf::IntRect(0, 64, 16, 16));
-                    SpriteTiles.setPosition(An * 16, Al * 16);
+                    SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                     comb.draw(SpriteTiles);
                     std::cout << "C ";
                     break;
                 case 'X':
                         SpriteTiles.setTextureRect(sf::IntRect(6 * 16, 3 * 16, 16, 16));
-                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         comb.draw(SpriteTiles);
                     break;
                 }
@@ -130,7 +130,7 @@ public:
                     //campo arbustos
                     if (probabilidad(10)) {
                         SpriteTiles.setTextureRect(sf::IntRect(10*16,11*16, 16, 16));
-                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         comb.draw(SpriteTiles);
                     }
                     break;
@@ -138,12 +138,12 @@ public:
                     //desierto
                     if (probabilidad(3)) {
                         SpriteTiles.setTextureRect(sf::IntRect(7*16, 12*16, 16, 16));
-                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         comb.draw(SpriteTiles);
                     }
                     else if (probabilidad(1)) {
                         SpriteTiles2.setTextureRect(sf::IntRect(375, 241, 40, 50));
-                        SpriteTiles2.setPosition(An * 16, Al * 16);
+                        SpriteTiles2.setPosition(An * 16.0f, Al * 16.0f);
                         SpriteTiles2.setScale(rand() % 2 ? -1 : 1, 1);
                         comb.draw(SpriteTiles2);
                     }
@@ -153,12 +153,12 @@ public:
                     //campo piedras
                     if (probabilidad(5)) {
                         SpriteTiles.setTextureRect(sf::IntRect(5*16, 13*16, 16, 16));
-                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         comb.draw(SpriteTiles);
                     }
                     else if (probabilidad(5)) {
                         SpriteTiles.setTextureRect(sf::IntRect(12*16,16 *16, 16, 16));
-                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         SpriteTiles.setScale(rand() % 2 ? -1 : 1, 1);
                         comb.draw(SpriteTiles);
                     }
@@ -166,12 +166,12 @@ public:
                 case 'X':
                     if (probabilidad(15)) {
                         SpriteTiles.setTextureRect(sf::IntRect(10 * 16, 13 * 16, 16, 16));
-                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         comb.draw(SpriteTiles);
                     }
                     else if (probabilidad(10)) {
                         SpriteTiles.setTextureRect(sf::IntRect(3 * 16, 13 * 16, 16, 16));
-                        SpriteTiles.setPosition(An * 16, Al * 16);
+                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         comb.draw(SpriteTiles);
                     }
                     break;
