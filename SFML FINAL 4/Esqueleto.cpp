@@ -12,7 +12,7 @@ Esqueleto::Esqueleto(float vel, float vel_atac, float vida, int danio, Vector2f 
     SpriteEsqueleto.setTexture(*m_textura);
     SpriteEsqueleto.setPosition(m_pos);
     SpriteEsqueleto.setTextureRect(sf::IntRect(0, 0, 64, 64));
-    SpriteEsqueleto.scale(0.6f, 0.6f);
+    SpriteEsqueleto.scale(0.7f, 0.7f);
     hitbox.setFillColor(Color::Blue);
     hitbox.setRadius(11);
 }
@@ -23,7 +23,7 @@ void Esqueleto::actualizar()
 
 void Esqueleto::dibujar(RenderWindow& w)
 {
-    //w.draw(hitbox);
+    w.draw(hitbox);
     w.draw(SpriteEsqueleto);
 }
 

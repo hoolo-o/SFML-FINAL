@@ -26,7 +26,11 @@ void Partida::actualizar(Juego& j)
 		ve1[x].perseguirJugador(p1.verPosicion() - Vector2f(10.0f, 0.0f));
 		
 		for (int Col = 0; Col < ve1.size();Col++) {
-			//ve1[Col].mover(calcularOffset(ve1[x].getHitBox(),ve1[Col].getHitBox(),0.1f));
+			if (ColisionCirculo(ve1[x].getHitBox(), ve1[Col].getHitBox())) {
+				ajuste = resolverColision(ve1[x].getHitBox(), ve1[Col].getHitBox());
+				ve1[x].mover(ajuste);
+				ve1[Col].mover(-ajuste);
+			}
 		}
 		if (ColisionCirculo(p1.getHitBox(), ve1[x].getHitBox()) and p1.atacando()) {
 			cout << "Hit a " << x << endl;
