@@ -5,13 +5,13 @@
 #include "Esqueleto.h"
 using namespace sf;
 using namespace std;
-class TextHandler {
+class Textos {
 private:
 	stringstream ss1;
 	Text Texto1;
 	Font fuente;
 public:
-	TextHandler() {
+	Textos() {
 		fuente.loadFromFile("Recursos/OstrichSans-Black.otf");
 		Texto1.setPosition(10.0f, 10.0f);
 		Texto1.setFont(fuente);

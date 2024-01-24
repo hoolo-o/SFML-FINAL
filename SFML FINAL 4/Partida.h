@@ -18,7 +18,7 @@ private:
 	vector<Esqueleto> ve1;
 	int num_esq = 20;
 	Vector2f ajuste;
-	TextHandler T1;
+	Textos T1;
 	int Puntos = 0;
 	int contador_ronda = 1;
 public:
