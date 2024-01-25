@@ -3,6 +3,7 @@
 Partida::Partida() : p1(2, 1, 20, 1)
 {
 	T->loadFromFile("imagenes/enemigo.png");
+	T_coin->loadFromFile("Imagenes/moneda.png");
 	m1.generarMapa();
 	m1.SpawnE();
 	m1.mostrarMapa();
@@ -13,8 +14,7 @@ Partida::Partida() : p1(2, 1, 20, 1)
 
 void Partida::actualizar(Juego& j)
 {
-	T1.actualizar(ve1, contador_ronda, p1.GetVida(), Puntos);
-	
+	T1.actualizar(ve1, contador_ronda, p1.GetVida(), p1.getMonedas());
 	p1.actualizar();
 	if (ve1.size() == 0) {
 		//sumar esqueletos por ronda
@@ -23,7 +23,7 @@ void Partida::actualizar(Juego& j)
 		contador_ronda++;
 	}
 	for (int x = 0;x < ve1.size();x++) {
-		
+
 		ve1[x].perseguirJugador(p1.verPosicion() - Vector2f(10.0f, 0.0f));
 		
 		for (int Col = 0; Col < ve1.size();Col++) {
@@ -46,8 +46,18 @@ void Partida::actualizar(Juego& j)
 		}
 		if (ve1[x].muerto()) {
 			//verifica si esqueletos estan muertos y elimina
-			Puntos += ve1[x].getValorEsqueleto();
+			moneda coin(ve1[x].verPosicion(), T_coin, ve1[x].getValorEsqueleto());
 			ve1.erase(ve1.begin() + x);
+			vm1.push_back(coin);
+		}
+		if (p1.GetVida() <= 0) {
+			j.cambiarEscena(new menu);
+		}
+	}
+	for (int x = 0; x < vm1.size(); x++) {
+		if (ColisionCirculo(vm1[x].getHitbox(), p1.getHitbox_me())) {
+			p1.sumMoneda(vm1[x].getValor());
+			vm1.erase(vm1.begin() + x);
 		}
 	}
 }
@@ -56,6 +66,9 @@ void Partida::dibujar(RenderWindow& w)
 {
 		w.clear(Color::Green);
 		m1.dibujar(w);
+		for (moneda m : vm1) {
+			m.dibujar(w);
+		}
 		p1.dibujar(w);
 		for (Esqueleto e1 : ve1) {
 			e1.dibujar(w);

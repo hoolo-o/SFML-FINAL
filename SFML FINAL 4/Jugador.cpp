@@ -14,6 +14,8 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio)
 	m_vida = vida;
 	m_danio = danio;
 
+	monedas = 0;
+
 	izq = Keyboard::A;
 	der = Keyboard::D;
 	arr = Keyboard::W;
@@ -92,8 +94,8 @@ void Jugador::actualizar()
 void Jugador::dibujar(RenderWindow& w)
 {
 	w.draw(m_sprite);
-	w.draw(hitbox);
-	w.draw(hitbox_me);
+	//w.draw(hitbox);
+	//w.draw(hitbox_me);
 }
 
 Vector2f Jugador::verPosicion()
@@ -135,4 +137,14 @@ void Jugador::danio(int Danio) {
 
 CircleShape Jugador::getHitbox_me() {
 	return hitbox_me;
+}
+
+void Jugador::sumMoneda(int moneda)
+{
+	monedas += moneda;
+}
+
+int Jugador::getMonedas()
+{
+	return monedas;
 }

@@ -14,6 +14,8 @@ private:
 	bool izquierda;
 	bool arriba;
 
+	int monedas;
+
 	CircleShape hitbox;
 	CircleShape hitbox_me;
 
@@ -21,6 +23,8 @@ private:
 	float m_vel_atac;
 	int m_vida;
 	float m_danio;
+
+
 
 public:
 	Jugador();
@@ -38,4 +42,6 @@ public:
 	int GetVida();
 	void danio(int Danio);
 	CircleShape getHitbox_me();
+	void sumMoneda(int moneda);
+	int getMonedas();
 };

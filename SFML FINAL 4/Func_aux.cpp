@@ -56,3 +56,10 @@ Vector2f resolverColision(const CircleShape& cir1, const CircleShape& cir2) {
     float moverY = Superpos * sin(angulo) / 2.0f;
     return Vector2f(moverX, moverY);
 }
+
+bool mouse(Vector2f mousePos, RectangleShape& rect) {
+    return mousePos.x > rect.getPosition().x &&
+        mousePos.x < rect.getPosition().x + rect.getSize().x &&
+        mousePos.y > rect.getPosition().y &&
+        mousePos.y < rect.getPosition().y + rect.getSize().y;
+}

@@ -24,7 +24,10 @@
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="moneda.cpp" />
     <ClCompile Include="Partida.cpp" />
+    <ClCompile Include="piedra.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Escena.h" />
@@ -33,7 +36,10 @@
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Mapa.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="moneda.h" />
     <ClInclude Include="Partida.h" />
+    <ClInclude Include="piedra.h" />
     <ClInclude Include="Textos.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
