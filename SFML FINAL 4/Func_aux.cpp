@@ -63,3 +63,17 @@ bool mouse(Vector2f mousePos, RectangleShape& rect) {
         mousePos.y > rect.getPosition().y &&
         mousePos.y < rect.getPosition().y + rect.getSize().y;
 }
+
+
+//ver
+void hilo_tiempo(Clock& reloj, Time esperar) {
+    while (reloj.getElapsedTime() < esperar) {
+
+    }
+}
+
+bool temporizador(float tiempo)
+{
+    sleep(seconds(tiempo));
+    return true;
+}

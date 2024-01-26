@@ -1,18 +1,34 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include "piedra.h"
+#include "Func_aux.h"
 
 using namespace sf;
 
+struct direccion {
+	bool arriba;
+	bool abajo;
+	bool izquierda;
+	bool derecha;
+};
+
 class Jugador {
 private:
+	Texture* T_piedra = new Texture();
 	Texture m_textura;
 	Sprite m_sprite;
 	Clock m_clock;
+	Clock m_clock2;
 	Time delay;
-	Keyboard::Key izq, der, arr, abj, atac, take;
+	Keyboard::Key izq, der, arr, abj, atac, lanz, take;
 
-	bool izquierda;
-	bool arriba;
+	bool puede_lanzar;
+	bool puede_atacar;
+	bool lanzar;
+
+	direccion direc;
+	std::vector<piedra> ps;
 
 	int monedas;
 
@@ -25,10 +41,9 @@ private:
 	float m_danio;
 
 
-
 public:
 	Jugador();
-	Jugador(float vel, float vel_atac, int vida, float danio);
+	Jugador(float vel, float vel_atac, int vida, float danio, String nombre);
 	void actualizar();
 	void dibujar(RenderWindow &w);
 	Vector2f verPosicion();
@@ -44,4 +59,6 @@ public:
 	CircleShape getHitbox_me();
 	void sumMoneda(int moneda);
 	int getMonedas();
+	piedra generar_piedra(Texture* T_piedra);
+	std::vector<piedra> &getPiedras();
 };

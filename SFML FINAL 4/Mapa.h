@@ -22,6 +22,8 @@ private:
     sf::Sprite mapa;
     sf::Sprite deco;
     sf::Sprite spawn;
+    sf::CircleShape piedra;
+    std::vector<sf::CircleShape> hitbox_piedras;
 public:
     Mapa() {
         //creacion de semilla aleatoria para distribuir en el mapa los biomas de forma heterogenea
@@ -35,6 +37,8 @@ public:
         for (int i = 0; i < 3; i++) {
             biomaInfo[i] = { static_cast<char>('A' + i), distribX(gen), distribY(gen) };
         }
+        piedra.setFillColor(sf::Color::Black);
+        piedra.setRadius(12);
     }
 
     void dibujar(RenderWindow &w) {
@@ -161,15 +165,12 @@ public:
                     break;
                 case 'C':
                     //campo piedras
-                    if (probabilidad(5)) {
+                    if (probabilidad(4)) {
                         SpriteTiles.setTextureRect(sf::IntRect(5*16, 13*16, 16, 16));
                         SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
-                        comb.draw(SpriteTiles);
-                    }
-                    else if (probabilidad(5)) {
-                        SpriteTiles.setTextureRect(sf::IntRect(12*16,16 *16, 16, 16));
-                        SpriteTiles.setPosition(An * 16.0f, Al * 16.0f);
                         SpriteTiles.setScale(rand() % 2 ? -1 : 1, 1);
+                        piedra.setPosition(SpriteTiles.getPosition());
+                        hitbox_piedras.push_back(piedra);
                         comb.draw(SpriteTiles);
                     }
                     break;
@@ -227,5 +228,8 @@ public:
         return &campo[0][0];
     }
 
+    std::vector<sf::CircleShape> getPiedras() {
+        return hitbox_piedras;
+    }
 };
 

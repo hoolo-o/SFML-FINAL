@@ -9,6 +9,7 @@ class Textos {
 private:
 	stringstream ss1;
 	Text Texto1;
+
 	Font fuente;
 public:
 	Textos() {

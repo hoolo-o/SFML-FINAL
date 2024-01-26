@@ -9,6 +9,7 @@
 #include "menu.h"
 #include "Juego.h"
 #include "moneda.h"
+
 using namespace sf;
 using namespace std;
 
@@ -21,6 +22,8 @@ private:
 	Texture* T_coin = new Texture();
 	vector<Esqueleto> ve1;
 	vector<moneda> vm1;
+	vector<CircleShape> piedras;
+	vector<piedra> lanzadas;
 	int num_esq = 20;
 	Vector2f ajuste;
 	Textos T1;

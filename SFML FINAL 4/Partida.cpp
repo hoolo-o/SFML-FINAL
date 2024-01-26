@@ -10,6 +10,7 @@ Partida::Partida() : p1(2, 1, 20, 1)
 	m1.Combinar();
 	m1.Decoracion();
 	ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
+	piedras = m1.getPiedras();
 }
 
 void Partida::actualizar(Juego& j)
@@ -60,6 +61,8 @@ void Partida::actualizar(Juego& j)
 			vm1.erase(vm1.begin() + x);
 		}
 	}
+	
+	
 }
 
 void Partida::dibujar(RenderWindow& w)
