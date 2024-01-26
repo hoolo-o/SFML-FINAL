@@ -16,4 +16,7 @@ public:
 	void dibujar(RenderWindow &w);
 	Vector2f getPos();
 	bool verificarTiempo();
+	CircleShape getHitbox();
+	int getDanio();
+	bool coliss(CircleShape otro);
 };

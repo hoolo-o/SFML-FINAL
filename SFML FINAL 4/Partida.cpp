@@ -1,6 +1,6 @@
 #include "Partida.h"
 
-Partida::Partida() : p1(2, 1, 20, 1)
+Partida::Partida() : p1(2, 1, 20, 1, "Jugador 1")
 {
 	T->loadFromFile("imagenes/enemigo.png");
 	T_coin->loadFromFile("Imagenes/moneda.png");
@@ -11,6 +11,7 @@ Partida::Partida() : p1(2, 1, 20, 1)
 	m1.Decoracion();
 	ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
 	piedras = m1.getPiedras();
+	T1.setNombre(p1.getNomnbre());
 }
 
 void Partida::actualizar(Juego& j)
@@ -38,8 +39,8 @@ void Partida::actualizar(Juego& j)
 		if (ColisionCirculo(p1.getHitBox(), ve1[x].getHitBox()) and p1.atacando()) {
 			cout << "Hit a " << x << endl;
 			ve1[x].Danio(p1.getDanio());
-
 		}
+		
 		if (ColisionCirculo(p1.getHitbox_me(), ve1[x].getHitBox())) {
 			//verifica danio a jugador
 			p1.danio(ve1[x].getDanio());
@@ -51,18 +52,30 @@ void Partida::actualizar(Juego& j)
 			ve1.erase(ve1.begin() + x);
 			vm1.push_back(coin);
 		}
+		
+
+
 		if (p1.GetVida() <= 0) {
+			//////funcion carga puntajes
 			j.cambiarEscena(new menu);
 		}
 	}
+
 	for (int x = 0; x < vm1.size(); x++) {
 		if (ColisionCirculo(vm1[x].getHitbox(), p1.getHitbox_me())) {
 			p1.sumMoneda(vm1[x].getValor());
 			vm1.erase(vm1.begin() + x);
 		}
 	}
-	
-	
+	T1.actualizar2(p1.getHitbox_me().getPosition()+Vector2f(-5.0f,-20.0f));
+
+	for (int i = 0; i < ve1.size();i++) {
+		for (int j = 0;j < lanzadas.size();j++) {
+			if (lanzadas[j].coliss(ve1[i].getHitBox())){
+				cout << "si" << endl;
+			}
+		}
+	}
 }
 
 void Partida::dibujar(RenderWindow& w)

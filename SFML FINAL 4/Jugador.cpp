@@ -16,6 +16,7 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio, String nombre
 	m_vel_atac = vel_atac;
 	m_vida = vida;
 	m_danio = danio;
+	m_nombre = nombre;
 
 	monedas = 0;
 	puede_lanzar = true;
@@ -33,6 +34,7 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio, String nombre
 	hitbox_me.setRadius(10);
 	hitbox_me.setFillColor(Color::Green);
 	T_piedra->loadFromFile("Imagenes/piedra.png");
+	m_sprite.setOrigin(15.5, 0);
 }
 
 Sprite Jugador::getSprite() {
@@ -105,7 +107,6 @@ void Jugador::actualizar()
 			m_sprite.setScale(1.5f, 1.5f);
 			m_sprite.setTextureRect(IntRect(2, 3.2 * 31, 31, 31));
 			if (direc.izquierda) {
-				m_sprite.setOrigin(15.5, 0);
 				m_sprite.setScale(-1.5f, 1.5f);
 				hitbox.setPosition(this->verPosicion() + Vector2f(-34, 15));
 			}else{
@@ -133,8 +134,8 @@ void Jugador::dibujar(RenderWindow& w)
 	for (int x = 0; x < ps.size();x++) {
 		ps[x].dibujar(w);
 	}
-	//w.draw(hitbox);
-	//w.draw(hitbox_me);
+	w.draw(hitbox);
+	w.draw(hitbox_me);
 }
 
 Vector2f Jugador::verPosicion()
@@ -204,7 +205,7 @@ piedra Jugador::generar_piedra(Texture* T_piedra)
 		d={ -2.9f, 0.0f };
 	}
 
-	piedra p(hitbox_me.getPosition()-Vector2f(-40.0f,-10.0f), d, T_piedra);
+	piedra p(hitbox_me.getPosition(), d, T_piedra);
 	ps.push_back(p);
 	return p;
 }
@@ -212,6 +213,11 @@ piedra Jugador::generar_piedra(Texture* T_piedra)
 std::vector<piedra>& Jugador::getPiedras()
 {
 	return ps;
+}
+
+string Jugador::getNomnbre()
+{
+	return m_nombre;
 }
 
 

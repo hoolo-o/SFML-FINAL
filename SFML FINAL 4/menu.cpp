@@ -22,9 +22,6 @@ menu::menu()
 	b_ver_puntos.setFillColor(Color::White);
 	b_ver_puntos.setSize(Vector2f(100, 50));
 
-
-
-
 }
 
 void menu::dibujar(RenderWindow& w)

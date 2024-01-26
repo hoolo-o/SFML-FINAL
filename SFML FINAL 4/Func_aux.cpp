@@ -64,8 +64,6 @@ bool mouse(Vector2f mousePos, RectangleShape& rect) {
         mousePos.y < rect.getPosition().y + rect.getSize().y;
 }
 
-
-//ver
 void hilo_tiempo(Clock& reloj, Time esperar) {
     while (reloj.getElapsedTime() < esperar) {
 

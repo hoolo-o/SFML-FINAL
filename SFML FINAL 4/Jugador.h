@@ -22,6 +22,7 @@ private:
 	Clock m_clock2;
 	Time delay;
 	Keyboard::Key izq, der, arr, abj, atac, lanz, take;
+	String m_nombre;
 
 	bool puede_lanzar;
 	bool puede_atacar;
@@ -61,4 +62,5 @@ public:
 	int getMonedas();
 	piedra generar_piedra(Texture* T_piedra);
 	std::vector<piedra> &getPiedras();
+	std::string getNomnbre();
 };

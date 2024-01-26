@@ -23,7 +23,7 @@ void Esqueleto::actualizar()
 
 void Esqueleto::dibujar(RenderWindow& w)
 {
-    //w.draw(hitbox);
+    w.draw(hitbox);
     w.draw(SpriteEsqueleto);
 }
 
