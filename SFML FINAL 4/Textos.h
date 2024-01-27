@@ -8,8 +8,10 @@ using namespace std;
 class Textos {
 private:
 	stringstream ss1;
+	Clock m_clock1;
 	Text Texto1;
 	Text Texto2;
+	Text Texto3;
 	Font fuente;
 public:
 	Textos() {
@@ -27,11 +29,22 @@ public:
 		Texto2.setFillColor(Color::Black);
 		Texto2.setOutlineColor(Color::White);
 		Texto2.setOutlineThickness(0.5f);
+
+		Texto3.setString("HIT");
+		Texto3.setFont(fuente);
+		Texto3.setCharacterSize(15);
+		Texto3.setLetterSpacing(1.5f);
+		Texto3.setFillColor(Color::Red);
+		Texto3.setOutlineColor(Color::Black);
+		Texto3.setOutlineThickness(0.4f);
 	}
 
 	void dibujar(RenderWindow &w) {
 		w.draw(Texto1);
 		w.draw(Texto2);
+		if (m_clock1.getElapsedTime() < seconds(0.5)) {
+			w.draw(Texto3);
+		}
 	}
 	void actualizar(std::vector<Esqueleto> v, int contador_ronda, int vida_p1, int monedas) {
 		ss1.str("");
@@ -44,5 +57,9 @@ public:
 	}
 	void actualizar2(Vector2f pos) {
 		Texto2.setPosition(pos);
+	}
+	void actualizar3(Vector2f pos) {
+		m_clock1.restart();
+		Texto3.setPosition(pos);
 	}
 };

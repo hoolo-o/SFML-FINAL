@@ -14,7 +14,7 @@ std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* map
                 sf::Vector2f posini = { An * 16.0f, Al * 16.0f };
                 if (probabilidad(50) and esqueletos.size()<cantidad) {
                     std::cout << "X ";
-                    Esqueleto esqts(1, 15, 20, 1.0f, posini, TE);
+                    Esqueleto esqts(1, 1, 20, 1.0f, posini, TE);
                     esqts.setVelocidadAleatoria(0.4f, 1.0f);
                     esqueletos.push_back(esqts);
                 }

@@ -1,6 +1,6 @@
 #include "Partida.h"
 
-Partida::Partida() : p1(2, 1, 20, 1, "Jugador 1")
+Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 {
 	T->loadFromFile("imagenes/enemigo.png");
 	T_coin->loadFromFile("Imagenes/moneda.png");
@@ -39,11 +39,15 @@ void Partida::actualizar(Juego& j)
 		if (ColisionCirculo(p1.getHitBox(), ve1[x].getHitBox()) and p1.atacando()) {
 			cout << "Hit a " << x << endl;
 			ve1[x].Danio(p1.getDanio());
+			ve1[x].retroceso(p1.verPosicion());
+			T1.actualizar3(ve1[x].getHitBox().getPosition());
+			p1.ya_ataco();
 		}
 		
-		if (ColisionCirculo(p1.getHitbox_me(), ve1[x].getHitBox())) {
+		if (ColisionCirculo(p1.getHitbox_me(), ve1[x].getHitBox()) and ve1[x].get_puede_atacar()) {
 			//verifica danio a jugador
 			p1.danio(ve1[x].getDanio());
+			ve1[x].ya_ataco();
 			cout << "vida: " << p1.GetVida() << endl;
 		}
 		if (ve1[x].muerto()) {

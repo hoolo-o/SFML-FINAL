@@ -20,6 +20,7 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio, String nombre
 
 	monedas = 0;
 	puede_lanzar = true;
+	puede_atacar = true;
 
 	izq = Keyboard::A;
 	der = Keyboard::D;
@@ -46,6 +47,9 @@ void Jugador::actualizar()
 	//verificar teclas de forma constante
 	//mover jugador y cambiar textura
 	//definir posicion de gitbox/ataque segun movimiento
+	if (m_clock3.getElapsedTime() >= seconds(m_vel_atac)) {
+		puede_atacar = true;
+	}
 
 	if (m_clock.getElapsedTime().asSeconds() < 0.2f) {
 		return;
@@ -102,7 +106,7 @@ void Jugador::actualizar()
 			hitbox.setPosition(this->verPosicion() + Vector2f(-7, 40));
 		}
 	}
-	if (Keyboard::isKeyPressed(atac)) {
+	if (Keyboard::isKeyPressed(atac) and puede_atacar) {
 		m_clock.restart();
 			m_sprite.setScale(1.5f, 1.5f);
 			m_sprite.setTextureRect(IntRect(2, 3.2 * 31, 31, 31));
@@ -144,7 +148,7 @@ Vector2f Jugador::verPosicion()
 }
 
 bool Jugador::atacando() {
-	return Keyboard::isKeyPressed(atac);
+	return (Keyboard::isKeyPressed(atac));
 }
 
 float Jugador::getVelAtaque() {
@@ -220,6 +224,11 @@ string Jugador::getNomnbre()
 	return m_nombre;
 }
 
+void Jugador::ya_ataco()
+{
+	puede_atacar = false;
+	m_clock3.restart();
+}
 
 
 

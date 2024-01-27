@@ -15,6 +15,7 @@ Esqueleto::Esqueleto(float vel, float vel_atac, float vida, int danio, Vector2f 
     SpriteEsqueleto.scale(0.7f, 0.7f);
     hitbox.setFillColor(Color::Blue);
     hitbox.setRadius(11);
+    puede_atacar = true;
 }
 
 void Esqueleto::actualizar()
@@ -57,6 +58,9 @@ void Esqueleto::CambiarSpriteDireccion(int pos) {
 }
 
 void Esqueleto::perseguirJugador(const sf::Vector2f& posicionJugador) {
+    if (m_clock.getElapsedTime() >= seconds(m_vel_atac)) {
+        puede_atacar = true;
+    }
     //llama a funcion anterior y modifica la pos persiguiendo al jugador
     sf::Vector2f direccion = posicionJugador - SpriteEsqueleto.getPosition();
     //normalizar vector
@@ -144,5 +148,26 @@ int Esqueleto::getDanio() {
 int Esqueleto::getValorEsqueleto()
 {
     return Valor;
+}
+
+void Esqueleto::ya_ataco()
+{
+    m_clock.restart();
+    puede_atacar = false;
+}
+
+bool Esqueleto::get_puede_atacar()
+{
+    return puede_atacar;
+}
+
+void Esqueleto::retroceso(Vector2f pos)
+{
+    Vector2f direc = pos - getHitBox_Pos();
+    Vector2f direc_norm = direc / sqrt(direc.x * direc.x + direc.y * direc.y);
+    float tiempo = 1.0f;
+    float mag_empuje = 9.0f * tiempo;
+    Vector2f empuje = direc_norm * mag_empuje;
+    SpriteEsqueleto.move(-empuje);
 }
 

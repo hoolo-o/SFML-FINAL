@@ -20,6 +20,7 @@ private:
 	Sprite m_sprite;
 	Clock m_clock;
 	Clock m_clock2;
+	Clock m_clock3;
 	Time delay;
 	Keyboard::Key izq, der, arr, abj, atac, lanz, take;
 	String m_nombre;
@@ -63,4 +64,5 @@ public:
 	piedra generar_piedra(Texture* T_piedra);
 	std::vector<piedra> &getPiedras();
 	std::string getNomnbre();
+	void ya_ataco();
 };

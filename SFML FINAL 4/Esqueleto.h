@@ -8,9 +8,12 @@ private:
 	Texture* m_textura;
 	Sprite m_sprite;
 	Clock m_clock;
+	Clock m_clock2;
 	Vector2f m_pos;
 
 	CircleShape hitbox;
+
+	bool puede_atacar;
 
 	Sprite SpriteEsqueleto;
 
@@ -39,4 +42,7 @@ public:
 	Vector2f getHitBox_Pos();
 	int getDanio();
 	int getValorEsqueleto();
+	void ya_ataco();
+	bool get_puede_atacar();
+	void retroceso(Vector2f pos);
 };
