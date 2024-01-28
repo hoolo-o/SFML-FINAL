@@ -12,17 +12,24 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 	ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
 	piedras = m1.getPiedras();
 	T1.setNombre(p1.getNomnbre());
+	aux = true;
 }
 
 void Partida::actualizar(Juego& j)
 {
+	vende.actualizar(ColisionCirculo(p1.getHitbox_me(),vende.getHitbox()));
 	T1.actualizar(ve1, contador_ronda, p1.GetVida(), p1.getMonedas());
 	p1.actualizar();
-	if (ve1.size() == 0) {
+
+	if (ve1.size() == 0 and aux) { reloj.restart();aux = false; vende.mostrarse_switch(); }
+
+	if (ve1.size() == 0 and reloj.getElapsedTime().asSeconds()>=10) {
 		//sumar esqueletos por ronda
+		vende.mostrarse_switch();
 		num_esq += 2;
 		ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
 		contador_ronda++;
+		aux = true;
 	}
 	for (int x = 0;x < ve1.size();x++) {
 
@@ -93,6 +100,7 @@ void Partida::dibujar(RenderWindow& w)
 		for (Esqueleto e1 : ve1) {
 			e1.dibujar(w);
 		}
+		vende.dibujar(w);
 		T1.dibujar(w);
 }
 //si

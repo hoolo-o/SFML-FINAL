@@ -9,6 +9,7 @@
 #include "menu.h"
 #include "Juego.h"
 #include "moneda.h"
+#include "vendedor.h"
 
 using namespace sf;
 using namespace std;
@@ -16,20 +17,23 @@ using namespace std;
 class Partida : public Escena {
 private:
 	Jugador p1;
+	Vendedor vende;
 	Mapa m1;
 	Sprite m1S;
+	Clock reloj;
 	Texture* T = new Texture();
 	Texture* T_coin = new Texture();
 	vector<Esqueleto> ve1;
 	vector<moneda> vm1;
 	vector<CircleShape> piedras;
 	vector<piedra> lanzadas;
-	int num_esq = 20;
+	int num_esq = 2;
 	Vector2f ajuste;
 	Textos T1;
 	int Puntos = 0;
 	int contador_ronda = 1;
 	menu menu1;
+	bool aux;
 public:
 	Partida();
 	void actualizar(Juego& j) override;

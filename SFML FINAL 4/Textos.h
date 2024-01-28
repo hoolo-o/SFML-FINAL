@@ -12,6 +12,7 @@ private:
 	Text Texto1;
 	Text Texto2;
 	Text Texto3;
+	Text Texto4;
 	Font fuente;
 public:
 	Textos() {
@@ -37,6 +38,16 @@ public:
 		Texto3.setFillColor(Color::Red);
 		Texto3.setOutlineColor(Color::Black);
 		Texto3.setOutlineThickness(0.4f);
+
+		Texto4.setString("HIT");
+		Texto4.setFont(fuente);
+		Texto4.setCharacterSize(15);
+		Texto4.setLetterSpacing(1.5f);
+		Texto4.setFillColor(Color::Red);
+		Texto4.setOutlineColor(Color::Black);
+		Texto4.setOutlineThickness(0.4f);
+		Texto4.setPosition(500, 500);
+
 	}
 
 	void dibujar(RenderWindow &w) {
@@ -61,5 +72,8 @@ public:
 	void actualizar3(Vector2f pos) {
 		m_clock1.restart();
 		Texto3.setPosition(pos);
+	}
+	void actualizar4(char tiempo) {
+		Texto4.setString(tiempo);
 	}
 };

@@ -28,6 +28,8 @@
     <ClCompile Include="moneda.cpp" />
     <ClCompile Include="Partida.cpp" />
     <ClCompile Include="piedra.cpp" />
+    <ClCompile Include="vendedor.cpp" />
+    <ClCompile Include="ventana_vendedor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Escena.h" />
@@ -40,7 +42,10 @@
     <ClInclude Include="moneda.h" />
     <ClInclude Include="Partida.h" />
     <ClInclude Include="piedra.h" />
+    <ClInclude Include="poder.h" />
     <ClInclude Include="Textos.h" />
+    <ClInclude Include="vendedor.h" />
+    <ClInclude Include="ventana_vendedor.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

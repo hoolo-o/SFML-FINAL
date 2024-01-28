@@ -42,6 +42,12 @@
     <ClCompile Include="piedra.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vendedor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ventana_vendedor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -75,6 +81,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="piedra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendedor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ventana_vendedor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="poder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
