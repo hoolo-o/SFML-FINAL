@@ -21,13 +21,19 @@ private:
 	Mapa m1;
 	Sprite m1S;
 	Clock reloj;
+
+	Clock reloj_fps;
+	float delta;
+	float fps;
+	Time pasado;
+
 	Texture* T = new Texture();
 	Texture* T_coin = new Texture();
 	vector<Esqueleto> ve1;
 	vector<moneda> vm1;
 	vector<CircleShape> piedras;
 	vector<piedra> lanzadas;
-	int num_esq = 2;
+	int num_esq = 200;
 	Vector2f ajuste;
 	Textos T1;
 	int Puntos = 0;

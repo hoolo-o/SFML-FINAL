@@ -42,7 +42,6 @@
     <ClInclude Include="moneda.h" />
     <ClInclude Include="Partida.h" />
     <ClInclude Include="piedra.h" />
-    <ClInclude Include="poder.h" />
     <ClInclude Include="Textos.h" />
     <ClInclude Include="vendedor.h" />
     <ClInclude Include="ventana_vendedor.h" />

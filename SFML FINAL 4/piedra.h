@@ -19,4 +19,5 @@ public:
 	CircleShape getHitbox();
 	int getDanio();
 	bool coliss(CircleShape otro);
+	Sprite getSprite();
 };

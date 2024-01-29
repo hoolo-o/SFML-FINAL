@@ -57,9 +57,9 @@ public:
 			w.draw(Texto3);
 		}
 	}
-	void actualizar(std::vector<Esqueleto> v, int contador_ronda, int vida_p1, int monedas) {
+	void actualizar(std::vector<Esqueleto> v, int contador_ronda, int vida_p1, int monedas, int fps) {
 		ss1.str("");
-		ss1 << "Enemigos: " << v.size() << "   Ronda: " << contador_ronda << "  Vida: " << vida_p1 << "  Monedas: " << monedas;
+		ss1 << "Enemigos: " << v.size() << "   Ronda: " << contador_ronda << "  Vida: " << vida_p1 << "  Monedas: " << monedas << "                                                                                         FPS: " << fps;
 		Texto1.setString(ss1.str());
 	}
 

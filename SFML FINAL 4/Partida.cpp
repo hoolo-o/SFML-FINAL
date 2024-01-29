@@ -17,8 +17,9 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 
 void Partida::actualizar(Juego& j)
 {
+	pasado = reloj_fps.restart();
 	vende.actualizar(ColisionCirculo(p1.getHitbox_me(),vende.getHitbox()));
-	T1.actualizar(ve1, contador_ronda, p1.GetVida(), p1.getMonedas());
+	T1.actualizar(ve1, contador_ronda, p1.GetVida(), p1.getMonedas(), fps);
 	p1.actualizar();
 
 	if (ve1.size() == 0 and aux) { reloj.restart();aux = false; vende.mostrarse_switch(); }
@@ -80,13 +81,16 @@ void Partida::actualizar(Juego& j)
 	}
 	T1.actualizar2(p1.getHitbox_me().getPosition()+Vector2f(-5.0f,-20.0f));
 
-	for (int i = 0; i < ve1.size();i++) {
-		for (int j = 0;j < lanzadas.size();j++) {
-			if (lanzadas[j].coliss(ve1[i].getHitBox())){
+	for (int i = 0; i < lanzadas.size();i++) {
+		for (int j = 0;j < ve1.size();j++) {
+			if (ColisionCirculo(ve1[j].getHitBox(), lanzadas[i].getHitbox())) {
 				cout << "si" << endl;
 			}
 		}
 	}
+	delta = pasado.asSeconds();
+	fps = 1.0f / delta;
+	
 }
 
 void Partida::dibujar(RenderWindow& w)

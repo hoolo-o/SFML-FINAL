@@ -28,12 +28,12 @@ void Vendedor::actualizar(bool ver)
 {
 	if (aparecer and movimiento < 6) {
 		m_sprite.setScale(-1, 1);
-		movimiento += 0.1;
+		movimiento += 0.1f;
 		m_sprite.move(movimiento, movimiento);
 	}
 	if (aparecer == false and movimiento > 0) {
 		m_sprite.setScale(1, 1);
-		movimiento -=0.1;
+		movimiento -=0.1f;
 		m_sprite.move(-movimiento, -movimiento);
 	}
 	m_hitbox.setPosition(m_sprite.getPosition());

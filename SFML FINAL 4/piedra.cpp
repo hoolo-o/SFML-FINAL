@@ -13,7 +13,7 @@ piedra::piedra(Vector2f pos, Vector2f direc, Texture* T_piedra)
 	tiempo_vida = 2.5f;
 	m_hitbox.setPosition(pos+Vector2f(0.0f,10.0f));
 	m_hitbox.setOrigin(2, 2);
-	m_hitbox.setRadius(5);
+	m_hitbox.setRadius(10);
 	m_hitbox.setFillColor(Color::Black);
 	m_clock.restart();
 }
@@ -57,4 +57,9 @@ bool piedra::coliss(CircleShape otro)
 	float distan = sqrt(std::pow(cent2.x - cent1.x, 2) + pow(cent2.y - cent1.y, 2));
 	//verificar colision
 	return distan <= otro.getRadius() + this->getHitbox().getRadius();
+}
+
+Sprite piedra::getSprite()
+{
+	return m_sprite;
 }

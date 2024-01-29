@@ -75,3 +75,4 @@ bool temporizador(float tiempo)
     sleep(seconds(tiempo));
     return true;
 }
+
