@@ -31,7 +31,7 @@ void Empuje::actualizar(Vector2f pos)
 		m_hitbox1.setRadius(expandir);
 		m_hitbox1.setPosition(m_hitbox1.getPosition().x - expandir, m_hitbox1.getPosition().y - expandir);
 		if (expandir < 140) {
-			expandir += 6.0f;
+			expandir += 3.0f;
 		}
 		else {
 			puede_usarse = false;
@@ -52,7 +52,12 @@ void Empuje::dibujar(RenderWindow& w)
 	w.draw(m_hitbox1);
 }
 
-CircleShape Empuje::getHitbox()
+CircleShape* Empuje::getHitbox()
 {
-	return m_hitbox1;
+	return &m_hitbox1;
+}
+
+int Empuje::getValor()
+{
+	return valor_monedas;
 }

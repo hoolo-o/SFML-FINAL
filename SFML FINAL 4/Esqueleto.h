@@ -36,7 +36,7 @@ public:
 	bool muerto();
 	Sprite getSprite();
 	float getVida();
-	CircleShape getHitBox();
+	CircleShape* getHitBox();
 	Vector2f EvitarSuperPos(sf::CircleShape C);
 	void mover(sf::Vector2f correccion);
 	Vector2f getHitBox_Pos();

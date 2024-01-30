@@ -76,7 +76,8 @@ public:
 	void ya_ataco();
 
 	void poder1swith();
-	CircleShape pasarHit1();
+	CircleShape* pasarHit1();
+	int pasarValor();
 	void poder2swith();
 	void poder3swith();
 	void poder4swith();

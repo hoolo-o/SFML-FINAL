@@ -20,7 +20,7 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio, String nombre
 	m_danio = danio;
 	m_nombre = nombre;
 
-	monedas = 0;
+	monedas = 100;
 	puede_lanzar = true;
 	puede_atacar = true;
 
@@ -242,9 +242,13 @@ void Jugador::poder1swith()
 {
 	poder1 = !poder1;
 }
-CircleShape Jugador::pasarHit1()
+CircleShape* Jugador::pasarHit1()
 {
 	return empuj.getHitbox();
+}
+int Jugador::pasarValor()
+{
+	return empuj.getValor();
 }
 void Jugador::poder2swith()
 {

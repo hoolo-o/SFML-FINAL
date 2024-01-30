@@ -23,8 +23,15 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 
 void Partida::actualizar(Juego& j)
 {
-	if (vende.ventana_abierta() and Keyboard::isKeyPressed(uno)) {
+	if (vende.ventana_abierta() and Keyboard::isKeyPressed(uno) and p1.getMonedas()>=p1.pasarValor()) {
 		p1.poder1swith();
+		p1.sumMoneda(-p1.pasarValor());
+	}
+	for (int x = 0;x < ve1.size();x++) {
+		if (ColisionCirculo(*p1.pasarHit1(), *ve1[x].getHitBox())) {
+			ajuste = resolverColision(*ve1[x].getHitBox(), *p1.pasarHit1());
+			ve1[x].mover(-ajuste);
+		}
 	}
 	
 	pasado = reloj_fps.restart();
@@ -47,28 +54,22 @@ void Partida::actualizar(Juego& j)
 		ve1[x].perseguirJugador(p1.verPosicion() - Vector2f(10.0f, 0.0f));
 		
 		for (int Col = 0; Col < ve1.size();Col++) {
-			if (ColisionCirculo(ve1[x].getHitBox(), ve1[Col].getHitBox())) {
+			if (ColisionCirculo(*ve1[x].getHitBox(), *ve1[Col].getHitBox())) {
 				//verifica colision esqueletos y corrije
-				ajuste = resolverColision(ve1[x].getHitBox(), ve1[Col].getHitBox());
+				ajuste = resolverColision(*ve1[x].getHitBox(), *ve1[Col].getHitBox());
 				ve1[x].mover(ajuste);
 				ve1[Col].mover(-ajuste);
 			}
 		}
-		for (int x = 0;x < ve1.size();x++) {
-			if (ColisionCirculo(p1.pasarHit1(), ve1[x].getHitBox())) {
-				ajuste = resolverColision(ve1[x].getHitBox(), p1.pasarHit1());
-				ve1[x].mover(ajuste);
-			}
-		}
-		if (ColisionCirculo(p1.getHitBox(), ve1[x].getHitBox()) and p1.atacando()) {
+		if (ColisionCirculo(p1.getHitBox(), *ve1[x].getHitBox()) and p1.atacando()) {
 			cout << "Hit a " << x << endl;
 			ve1[x].Danio(p1.getDanio());
 			ve1[x].retroceso(p1.verPosicion());
-			T1.actualizar3(ve1[x].getHitBox().getPosition());
+			T1.actualizar3(ve1[x].getHitBox_Pos());
 			p1.ya_ataco();
 		}
 		
-		if (ColisionCirculo(p1.getHitbox_me(), ve1[x].getHitBox()) and ve1[x].get_puede_atacar()) {
+		if (ColisionCirculo(p1.getHitbox_me(), *ve1[x].getHitBox()) and ve1[x].get_puede_atacar()) {
 			//verifica danio a jugador
 			p1.danio(ve1[x].getDanio());
 			ve1[x].ya_ataco();
@@ -99,7 +100,7 @@ void Partida::actualizar(Juego& j)
 
 	for (int i = 0; i < lanzadas.size();i++) {
 		for (int j = 0;j < ve1.size();j++) {
-			if (ColisionCirculo(ve1[j].getHitBox(), lanzadas[i].getHitbox())) {
+			if (ColisionCirculo(*ve1[j].getHitBox(), lanzadas[i].getHitbox())) {
 				cout << "si" << endl;
 			}
 		}

@@ -37,7 +37,7 @@ private:
 	vector<moneda> vm1;
 	vector<CircleShape> piedras;
 	vector<piedra> lanzadas;
-	int num_esq = 20;
+	int num_esq = 2;
 	Vector2f ajuste;
 	Textos T1;
 	int Puntos = 0;

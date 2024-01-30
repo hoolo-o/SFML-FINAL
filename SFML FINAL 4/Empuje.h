@@ -16,5 +16,6 @@ public:
 	Empuje();
 	void actualizar(Vector2f pos) override;
 	void dibujar(RenderWindow& w) override;
-	CircleShape getHitbox();
+	CircleShape* getHitbox();
+	int getValor();
 };

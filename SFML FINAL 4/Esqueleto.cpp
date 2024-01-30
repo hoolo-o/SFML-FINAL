@@ -116,9 +116,9 @@ float Esqueleto::getVida() {
     return m_vida;
 }
 
-CircleShape Esqueleto::getHitBox()
+CircleShape* Esqueleto::getHitBox()
 {
-    return hitbox;
+    return &hitbox;
 }
 
 Vector2f Esqueleto::EvitarSuperPos(sf::CircleShape C)
