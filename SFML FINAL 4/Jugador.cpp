@@ -146,8 +146,8 @@ void Jugador::dibujar(RenderWindow& w)
 	if (poder1) {
 		empuj.dibujar(w);
 	}
-	w.draw(hitbox);
-	w.draw(hitbox_me);
+	//w.draw(hitbox);
+	//w.draw(hitbox_me);
 }
 
 Vector2f Jugador::verPosicion()

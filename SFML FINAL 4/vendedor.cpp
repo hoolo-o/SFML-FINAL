@@ -42,7 +42,7 @@ void Vendedor::actualizar(bool ver)
 
 void Vendedor::dibujar(RenderWindow& w)
 {
-	w.draw(m_hitbox);
+	//w.draw(m_hitbox);
 	w.draw(m_sprite);
 	if (mostrar_ventana) {
 		v1.dibujar(w);

@@ -24,7 +24,7 @@ void piedra::actualizar()
 }
 void piedra::dibujar(RenderWindow& w)
 {
-	w.draw(m_hitbox);
+	//w.draw(m_hitbox);
 	w.draw(m_sprite);
 }
 
