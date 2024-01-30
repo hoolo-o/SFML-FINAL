@@ -10,6 +10,7 @@
 #include "Juego.h"
 #include "moneda.h"
 #include "vendedor.h"
+#include "poder.h"
 
 using namespace sf;
 using namespace std;
@@ -22,6 +23,9 @@ private:
 	Sprite m1S;
 	Clock reloj;
 
+	Keyboard::Key uno, dos, tres, cuatro, cinco, seis;
+
+
 	Clock reloj_fps;
 	float delta;
 	float fps;
@@ -33,7 +37,7 @@ private:
 	vector<moneda> vm1;
 	vector<CircleShape> piedras;
 	vector<piedra> lanzadas;
-	int num_esq = 200;
+	int num_esq = 20;
 	Vector2f ajuste;
 	Textos T1;
 	int Puntos = 0;

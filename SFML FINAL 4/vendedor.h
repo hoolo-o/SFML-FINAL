@@ -22,4 +22,5 @@ public:
 	void dibujar(RenderWindow &w);
 	void mostrarse_switch();
 	CircleShape getHitbox();
+	bool ventana_abierta();
 };

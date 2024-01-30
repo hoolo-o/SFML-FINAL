@@ -7,6 +7,8 @@ using namespace sf;
 class piedra;
 Jugador::Jugador(float vel, float vel_atac, int vida, float danio, String nombre)
 {
+	poder1, poder2, poder3, poder4, poder5, poder6 = false;
+
 	m_textura.loadFromFile("imagenes/Player.png");
 	m_sprite.setTexture(m_textura);
 	m_sprite.setTextureRect(IntRect(1,1,31,31));
@@ -47,6 +49,9 @@ void Jugador::actualizar()
 	//verificar teclas de forma constante
 	//mover jugador y cambiar textura
 	//definir posicion de gitbox/ataque segun movimiento
+	if (poder1) {
+		empuj.actualizar(this->verPosicion());
+	}
 	if (m_clock3.getElapsedTime() >= seconds(m_vel_atac)) {
 		puede_atacar = true;
 	}
@@ -138,6 +143,9 @@ void Jugador::dibujar(RenderWindow& w)
 	for (int x = 0; x < ps.size();x++) {
 		ps[x].dibujar(w);
 	}
+	if (poder1) {
+		empuj.dibujar(w);
+	}
 	w.draw(hitbox);
 	w.draw(hitbox_me);
 }
@@ -228,6 +236,35 @@ void Jugador::ya_ataco()
 {
 	puede_atacar = false;
 	m_clock3.restart();
+}
+
+void Jugador::poder1swith()
+{
+	poder1 = !poder1;
+}
+CircleShape Jugador::pasarHit1()
+{
+	return empuj.getHitbox();
+}
+void Jugador::poder2swith()
+{
+	poder2 = !poder2;
+}
+void Jugador::poder3swith()
+{
+	poder3 = !poder3;
+}
+void Jugador::poder4swith()
+{
+	poder4 = !poder4;
+}
+void Jugador::poder5swith()
+{
+	poder5 = !poder5;
+}
+void Jugador::poder6swith()
+{
+	poder6 = !poder6;
 }
 
 

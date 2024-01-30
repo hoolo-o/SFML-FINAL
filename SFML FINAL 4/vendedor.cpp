@@ -59,3 +59,8 @@ CircleShape Vendedor::getHitbox()
 	return m_hitbox;
 }
 
+bool Vendedor::ventana_abierta()
+{
+	return mostrar_ventana;
+}
+

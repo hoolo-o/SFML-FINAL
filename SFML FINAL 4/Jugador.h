@@ -3,7 +3,8 @@
 #include <vector>
 #include "piedra.h"
 #include "Func_aux.h"
-
+#include "poder.h"
+#include "Empuje.h"
 using namespace sf;
 
 struct direccion {
@@ -24,6 +25,14 @@ private:
 	Time delay;
 	Keyboard::Key izq, der, arr, abj, atac, lanz, take;
 	String m_nombre;
+
+	bool poder1;
+	Empuje empuj;
+	bool poder2;
+	bool poder3;
+	bool poder4;
+	bool poder5;
+	bool poder6;
 
 	bool puede_lanzar;
 	bool puede_atacar;
@@ -65,4 +74,12 @@ public:
 	std::vector<piedra> &getPiedras();
 	std::string getNomnbre();
 	void ya_ataco();
+
+	void poder1swith();
+	CircleShape pasarHit1();
+	void poder2swith();
+	void poder3swith();
+	void poder4swith();
+	void poder5swith();
+	void poder6swith();
 };

@@ -4,7 +4,7 @@
 using namespace sf;
 Juego::Juego(Escena* e): m_win(VideoMode(1200, 700), "Final")
 {
-	m_win.setFramerateLimit(60);
+	m_win.setFramerateLimit(90);
 	m_esc = e;
 }
 

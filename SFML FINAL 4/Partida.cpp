@@ -2,6 +2,12 @@
 
 Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 {
+	uno = Keyboard::Num1;
+	dos = Keyboard::Num2;
+	tres = Keyboard::Num3;
+	cuatro = Keyboard::Num4;
+	cinco = Keyboard::Num5;
+	seis = Keyboard::Num6;
 	T->loadFromFile("imagenes/enemigo.png");
 	T_coin->loadFromFile("Imagenes/moneda.png");
 	m1.generarMapa();
@@ -17,6 +23,10 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 
 void Partida::actualizar(Juego& j)
 {
+	if (vende.ventana_abierta() and Keyboard::isKeyPressed(uno)) {
+		p1.poder1swith();
+	}
+	
 	pasado = reloj_fps.restart();
 	vende.actualizar(ColisionCirculo(p1.getHitbox_me(),vende.getHitbox()));
 	T1.actualizar(ve1, contador_ronda, p1.GetVida(), p1.getMonedas(), fps);
@@ -42,6 +52,12 @@ void Partida::actualizar(Juego& j)
 				ajuste = resolverColision(ve1[x].getHitBox(), ve1[Col].getHitBox());
 				ve1[x].mover(ajuste);
 				ve1[Col].mover(-ajuste);
+			}
+		}
+		for (int x = 0;x < ve1.size();x++) {
+			if (ColisionCirculo(p1.pasarHit1(), ve1[x].getHitBox())) {
+				ajuste = resolverColision(ve1[x].getHitBox(), p1.pasarHit1());
+				ve1[x].mover(ajuste);
 			}
 		}
 		if (ColisionCirculo(p1.getHitBox(), ve1[x].getHitBox()) and p1.atacando()) {

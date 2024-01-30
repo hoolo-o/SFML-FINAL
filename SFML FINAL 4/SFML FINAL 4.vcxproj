@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Empuje.cpp" />
     <ClCompile Include="Esqueleto.cpp" />
     <ClCompile Include="Func_aux.cpp" />
     <ClCompile Include="Jugador.cpp" />
@@ -32,6 +33,7 @@
     <ClCompile Include="ventana_vendedor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Empuje.h" />
     <ClInclude Include="Escena.h" />
     <ClInclude Include="Esqueleto.h" />
     <ClInclude Include="Func_aux.h" />
@@ -42,6 +44,7 @@
     <ClInclude Include="moneda.h" />
     <ClInclude Include="Partida.h" />
     <ClInclude Include="piedra.h" />
+    <ClInclude Include="poder.h" />
     <ClInclude Include="Textos.h" />
     <ClInclude Include="vendedor.h" />
     <ClInclude Include="ventana_vendedor.h" />

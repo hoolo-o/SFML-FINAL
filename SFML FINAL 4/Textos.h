@@ -72,6 +72,7 @@ public:
 	void actualizar3(Vector2f pos) {
 		m_clock1.restart();
 		Texto3.setPosition(pos);
+		
 	}
 	void actualizar4(char tiempo) {
 		Texto4.setString(tiempo);
