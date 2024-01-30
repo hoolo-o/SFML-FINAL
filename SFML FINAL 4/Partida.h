@@ -44,6 +44,8 @@ private:
 	int contador_ronda = 1;
 	menu menu1;
 	bool aux;
+	bool aux2;
+	bool aux3;
 public:
 	Partida();
 	void actualizar(Juego& j) override;

@@ -24,8 +24,14 @@ Vendedor::Vendedor()
 	mostrar_ventana = false;
 }
 
+void Vendedor::setMonedas(int coins)
+{
+	aux = coins;
+}
+
 void Vendedor::actualizar(bool ver)
 {
+	v1.actualizar(aux);
 	if (aparecer and movimiento < 6) {
 		m_sprite.setScale(-1, 1);
 		movimiento += 0.1f;

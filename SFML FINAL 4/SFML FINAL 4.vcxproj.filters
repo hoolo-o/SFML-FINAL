@@ -60,6 +60,9 @@
     <ClCompile Include="Empuje.cpp">
       <Filter>poderes\fuente_poderes</Filter>
     </ClCompile>
+    <ClCompile Include="Teleport.cpp">
+      <Filter>poderes\fuente_poderes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -105,6 +108,9 @@
       <Filter>poderes\headers_poderes</Filter>
     </ClInclude>
     <ClInclude Include="Empuje.h">
+      <Filter>poderes\headers_poderes</Filter>
+    </ClInclude>
+    <ClInclude Include="Teleport.h">
       <Filter>poderes\headers_poderes</Filter>
     </ClInclude>
   </ItemGroup>

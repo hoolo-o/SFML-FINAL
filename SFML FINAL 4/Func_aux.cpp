@@ -1,6 +1,7 @@
 #include "Func_aux.h"
 #include <iostream>
 
+
 std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* mapa)
 {
     std::vector<Esqueleto> esqueletos;

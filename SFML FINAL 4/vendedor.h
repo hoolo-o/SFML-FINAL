@@ -13,11 +13,13 @@ private:
 	Clock m_reloj;
 	bool aparecer;
 	bool mostrar_ventana;
+	int aux;
 	float movimiento;
 	Keyboard::Key uno, dos, tres, cuatro, cinco, seis;
 	ventana v1;
 public:
 	Vendedor();
+	void setMonedas(int coins);
 	void actualizar(bool ver);
 	void dibujar(RenderWindow &w);
 	void mostrarse_switch();

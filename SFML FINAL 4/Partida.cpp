@@ -19,14 +19,25 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 	piedras = m1.getPiedras();
 	T1.setNombre(p1.getNomnbre());
 	aux = true;
+	aux2 = true;
+	aux3 = true;
 }
 
 void Partida::actualizar(Juego& j)
 {
-	if (vende.ventana_abierta() and Keyboard::isKeyPressed(uno) and p1.getMonedas()>=p1.pasarValor()) {
+	//compra poderes
+	if (vende.ventana_abierta() and Keyboard::isKeyPressed(uno) and p1.getMonedas()>=p1.pasarValor1() and aux2) {
 		p1.poder1swith();
-		p1.sumMoneda(-p1.pasarValor());
+		p1.sumMoneda(-p1.pasarValor1());
+		aux2 = false;
 	}
+	if (vende.ventana_abierta() and Keyboard::isKeyPressed(dos) and p1.getMonedas() >= p1.pasarValor2() and aux3) {
+		p1.poder2swith();
+		p1.sumMoneda(-p1.pasarValor2());
+		aux3 = false;
+	}
+	vende.setMonedas(p1.getMonedas());
+
 	for (int x = 0;x < ve1.size();x++) {
 		if (ColisionCirculo(*p1.pasarHit1(), *ve1[x].getHitBox())) {
 			ajuste = resolverColision(*ve1[x].getHitBox(), *p1.pasarHit1());
@@ -98,10 +109,13 @@ void Partida::actualizar(Juego& j)
 	}
 	T1.actualizar2(p1.getHitbox_me().getPosition()+Vector2f(-5.0f,-20.0f));
 
-	for (int i = 0; i < lanzadas.size();i++) {
-		for (int j = 0;j < ve1.size();j++) {
-			if (ColisionCirculo(*ve1[j].getHitBox(), lanzadas[i].getHitbox())) {
+	for (int i = 0; i < ve1.size();i++) {
+		for (int j = 0;j < p1.getPiedras().size();j++) {
+			if (ColisionCirculo(*ve1[i].getHitBox(), p1.getPiedras()[j].getHitbox())) {
 				cout << "si" << endl;
+				ve1[i].Danio(p1.getPiedras()[j].getDanio());
+				T1.actualizar3(ve1[i].verPosicion());
+				p1.getPiedras().erase(p1.getPiedras().begin() + j);
 			}
 		}
 	}

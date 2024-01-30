@@ -3,6 +3,15 @@
 #include "vector"
 #include <cstdlib>
 #include <SFML/Graphics.hpp>
+
+struct direccion {
+	bool arriba;
+	bool abajo;
+	bool izquierda;
+	bool derecha;
+};
+
+
 std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* mapa);
 
 bool probabilidad(int prob);

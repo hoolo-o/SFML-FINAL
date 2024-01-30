@@ -29,6 +29,7 @@
     <ClCompile Include="moneda.cpp" />
     <ClCompile Include="Partida.cpp" />
     <ClCompile Include="piedra.cpp" />
+    <ClCompile Include="Teleport.cpp" />
     <ClCompile Include="vendedor.cpp" />
     <ClCompile Include="ventana_vendedor.cpp" />
   </ItemGroup>
@@ -45,6 +46,7 @@
     <ClInclude Include="Partida.h" />
     <ClInclude Include="piedra.h" />
     <ClInclude Include="poder.h" />
+    <ClInclude Include="Teleport.h" />
     <ClInclude Include="Textos.h" />
     <ClInclude Include="vendedor.h" />
     <ClInclude Include="ventana_vendedor.h" />

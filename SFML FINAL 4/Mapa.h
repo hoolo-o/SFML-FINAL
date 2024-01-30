@@ -87,7 +87,7 @@ public:
         sf::Sprite SpriteTiles;
         sf::Texture tiles;
         SpriteTiles.setTexture(tiles);
-        tiles.loadFromFile("C:/Users/ccpro/OneDrive/Escritorio/imagenes/GRASS+.png");
+        tiles.loadFromFile("imagenes/GRASS+.png");
         for (int An = 0; An < ancho; An++) {
             for (int Al = 0; Al < alto; Al++) {
                 switch (campo[An][Al]) {

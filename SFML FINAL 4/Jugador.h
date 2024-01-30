@@ -4,15 +4,10 @@
 #include "piedra.h"
 #include "Func_aux.h"
 #include "poder.h"
+#include "Teleport.h"
 #include "Empuje.h"
-using namespace sf;
 
-struct direccion {
-	bool arriba;
-	bool abajo;
-	bool izquierda;
-	bool derecha;
-};
+using namespace sf;
 
 class Jugador {
 private:
@@ -29,6 +24,7 @@ private:
 	bool poder1;
 	Empuje empuj;
 	bool poder2;
+	Teleport tport;
 	bool poder3;
 	bool poder4;
 	bool poder5;
@@ -71,14 +67,17 @@ public:
 	void sumMoneda(int moneda);
 	int getMonedas();
 	piedra generar_piedra(Texture* T_piedra);
-	std::vector<piedra> &getPiedras();
+	std::vector<piedra>& getPiedras();
 	std::string getNomnbre();
 	void ya_ataco();
 
 	void poder1swith();
 	CircleShape* pasarHit1();
-	int pasarValor();
+	int pasarValor1();
+
 	void poder2swith();
+	int pasarValor2();
+
 	void poder3swith();
 	void poder4swith();
 	void poder5swith();
