@@ -24,6 +24,10 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio, String nombre
 	monedas = 250;
 	puede_lanzar = true;
 	puede_atacar = true;
+	mostrar_w_danio = false;
+
+	danio_w.setSize(Vector2f(1200,700));
+	danio_w.setFillColor(Color(255, 0, 0, 80));
 
 	izq = Keyboard::A;
 	der = Keyboard::D;
@@ -142,6 +146,9 @@ void Jugador::actualizar()
 			ps.erase(ps.begin() + x);
 		}
 	}
+
+	if (m_clock4.getElapsedTime() >= milliseconds(100))
+		mostrar_w_danio = false;
 	}
 
 void Jugador::dibujar(RenderWindow& w)
@@ -156,6 +163,8 @@ void Jugador::dibujar(RenderWindow& w)
 	if (poder2) {
 		tport.dibujar(w);
 	}
+	if(mostrar_w_danio)
+	w.draw(danio_w);
 	//w.draw(hitbox);
 	//w.draw(hitbox_me);
 }
@@ -195,6 +204,8 @@ int Jugador::GetVida() {
 
 void Jugador::danio(int Danio) {
 	m_vida = m_vida - Danio;
+	mostrar_w_danio = true;
+	m_clock4.restart();
 }
 
 CircleShape Jugador::getHitbox_me() {

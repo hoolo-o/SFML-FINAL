@@ -54,7 +54,6 @@ void Esqueleto::CambiarSpriteDireccion(int pos) {
         coordY = 3.0f;
     }
     SpriteEsqueleto.setTextureRect(sf::IntRect(coordX * 64, coordY * 64, 64, 64));
-
 }
 
 void Esqueleto::perseguirJugador(const sf::Vector2f& posicionJugador) {

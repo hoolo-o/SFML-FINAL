@@ -2,6 +2,7 @@
 
 Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 {
+	
 	uno = Keyboard::Num1;
 	dos = Keyboard::Num2;
 	tres = Keyboard::Num3;
@@ -15,6 +16,13 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 	m1.mostrarMapa();
 	m1.Combinar();
 	m1.Decoracion();
+
+	Pedrero p(0.2, 0.2, 1, 1, Vector2f(200, 200), T);
+	pedro = p;
+
+	bordes.loadFromFile("Imagenes/bordes4.png");
+	Sbordes.setTexture(bordes);
+	Sbordes.setColor(Color(180,180,180,180));
 	ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
 	piedras = m1.getPiedras();
 	T1.setNombre(p1.getNomnbre());
@@ -93,8 +101,6 @@ void Partida::actualizar(Juego& j)
 			vm1.push_back(coin);
 		}
 		
-
-
 		if (p1.GetVida() <= 0) {
 			//////funcion carga puntajes
 			j.cambiarEscena(new menu);
@@ -136,6 +142,8 @@ void Partida::dibujar(RenderWindow& w)
 			e1.dibujar(w);
 		}
 		vende.dibujar(w);
+		w.draw(Sbordes);
+		//BORDS.dibujar(w);
 		T1.dibujar(w);
 }
 //si

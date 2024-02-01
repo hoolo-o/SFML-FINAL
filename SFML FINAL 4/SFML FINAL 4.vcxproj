@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="Empuje.cpp" />
     <ClCompile Include="Esqueleto.cpp" />
+    <ClCompile Include="esqueleto_distancia.cpp" />
     <ClCompile Include="Func_aux.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="moneda.cpp" />
+    <ClCompile Include="nubes.cpp" />
     <ClCompile Include="Partida.cpp" />
     <ClCompile Include="piedra.cpp" />
     <ClCompile Include="Teleport.cpp" />
@@ -37,12 +39,14 @@
     <ClInclude Include="Empuje.h" />
     <ClInclude Include="Escena.h" />
     <ClInclude Include="Esqueleto.h" />
+    <ClInclude Include="esqueleto_distancia.h" />
     <ClInclude Include="Func_aux.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="moneda.h" />
+    <ClInclude Include="nubes.h" />
     <ClInclude Include="Partida.h" />
     <ClInclude Include="piedra.h" />
     <ClInclude Include="poder.h" />

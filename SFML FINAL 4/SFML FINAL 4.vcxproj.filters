@@ -63,6 +63,12 @@
     <ClCompile Include="Teleport.cpp">
       <Filter>poderes\fuente_poderes</Filter>
     </ClCompile>
+    <ClCompile Include="esqueleto_distancia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nubes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -112,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="Teleport.h">
       <Filter>poderes\headers_poderes</Filter>
+    </ClInclude>
+    <ClInclude Include="esqueleto_distancia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nubes.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

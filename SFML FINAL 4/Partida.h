@@ -11,9 +11,27 @@
 #include "moneda.h"
 #include "vendedor.h"
 #include "poder.h"
+#include "esqueleto_distancia.h"
+#include "nubes.h"
 
 using namespace sf;
 using namespace std;
+
+struct hitBordes {
+	RectangleShape arriba;
+	RectangleShape abajo;
+	RectangleShape izquierda;
+	RectangleShape derecha;
+
+	hitBordes() {
+		arriba.setFillColor(Color::Green);
+		arriba.setPosition(300, 300);
+		arriba.setScale(1200, 20);
+	}
+	void dibujar(RenderWindow& w) {
+		w.draw(arriba);
+	}
+};
 
 class Partida : public Escena {
 private:
@@ -25,12 +43,16 @@ private:
 
 	Keyboard::Key uno, dos, tres, cuatro, cinco, seis;
 
+	hitBordes BORDS;
 
 	Clock reloj_fps;
 	float delta;
 	float fps;
 	Time pasado;
 
+	Pedrero pedro;
+	Texture bordes;
+	Sprite Sbordes;
 	Texture* T = new Texture();
 	Texture* T_coin = new Texture();
 	vector<Esqueleto> ve1;

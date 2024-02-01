@@ -17,6 +17,7 @@ private:
 	Clock m_clock;
 	Clock m_clock2;
 	Clock m_clock3;
+	Clock m_clock4;
 	Time delay;
 	Keyboard::Key izq, der, arr, abj, atac, lanz, take;
 	String m_nombre;
@@ -39,6 +40,8 @@ private:
 
 	int monedas;
 
+	RectangleShape danio_w;
+	bool mostrar_w_danio;
 	CircleShape hitbox;
 	CircleShape hitbox_me;
 
