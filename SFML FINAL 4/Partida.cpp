@@ -11,6 +11,8 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 	seis = Keyboard::Num6;
 	T->loadFromFile("imagenes/enemigo.png");
 	T_coin->loadFromFile("Imagenes/moneda.png");
+	T_rayo->loadFromFile("Imagenes/rayo.png");
+	T_efect->loadFromFile("Imagenes/klipartz.com.png");
 	m1.generarMapa();
 	m1.SpawnE();
 	m1.mostrarMapa();
@@ -19,6 +21,8 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 
 	Pedrero p(0.2, 0.2, 1, 1, Vector2f(200, 200), T);
 	pedro = p;
+	T_nube->loadFromFile("Imagenes/nube.png");
+	v_nube = NubesBordes(3, T_nube, T_rayo, T_efect);
 
 	bordes.loadFromFile("Imagenes/bordes4.png");
 	Sbordes.setTexture(bordes);
@@ -34,6 +38,9 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 void Partida::actualizar(Juego& j)
 {
 	//compra poderes
+	for (int x = 0; x < v_nube.size();x++) {
+		v_nube[x].actualizar();
+	}
 	if (vende.ventana_abierta() and Keyboard::isKeyPressed(uno) and p1.getMonedas()>=p1.pasarValor1() and aux2) {
 		p1.poder1swith();
 		p1.sumMoneda(-p1.pasarValor1());
@@ -58,15 +65,25 @@ void Partida::actualizar(Juego& j)
 	T1.actualizar(ve1, contador_ronda, p1.GetVida(), p1.getMonedas(), fps);
 	p1.actualizar();
 
-	if (ve1.size() == 0 and aux) { reloj.restart();aux = false; vende.mostrarse_switch(); }
+	if (ve1.size() == 0 and aux) {
+		reloj.restart();
+		aux = false; vende.mostrarse_switch(); }
+
 
 	if (ve1.size() == 0 and reloj.getElapsedTime().asSeconds()>=10) {
 		//sumar esqueletos por ronda
 		vende.mostrarse_switch();
 		num_esq += 2;
 		ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
+		v_nube = NubesBordes(8, T_nube, T_rayo, T_efect);
 		contador_ronda++;
 		aux = true;
+	}
+	for (int x = 0; x < v_nube.size();x++) {
+		if (v_nube[x].borrar()) {
+			v_nube.erase(v_nube.begin() + x);
+			cout << "nube: " << x << endl;
+		}
 	}
 	for (int x = 0;x < ve1.size();x++) {
 
@@ -142,6 +159,9 @@ void Partida::dibujar(RenderWindow& w)
 			e1.dibujar(w);
 		}
 		vende.dibujar(w);
+		for (Nubes n : v_nube) {
+			n.dibujar(w);
+		}
 		w.draw(Sbordes);
 		//BORDS.dibujar(w);
 		T1.dibujar(w);

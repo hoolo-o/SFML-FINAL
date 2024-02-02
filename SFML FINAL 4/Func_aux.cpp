@@ -1,6 +1,7 @@
 #include "Func_aux.h"
 #include <iostream>
-
+#include "nubes.h"
+#include <random>
 
 std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* mapa)
 {
@@ -75,5 +76,31 @@ bool temporizador(float tiempo)
 {
     sleep(seconds(tiempo));
     return true;
+}
+
+std::vector<Nubes> NubesBordes(int cantidad, sf::Texture* TN, sf::Texture* TR, sf::Texture* TE) {
+    std::vector<Nubes> Nube;
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    float lower_bound = 0;
+    float upper_bound = 700;
+
+    std::uniform_real_distribution<float> distribution(lower_bound, upper_bound);
+
+    float lower_bound2 = 0;
+    float upper_bound2 = 700;
+
+    std::uniform_real_distribution<float> distribution2(lower_bound2, upper_bound2);
+
+    for (int i = 0; i < cantidad; i++) {
+        float x = distribution2(gen);
+        float y = distribution(gen);
+        sf::Vector2f CoordNubes = {-x,y};
+        Nubes Nubesin(CoordNubes, TN, TR, TE);
+        Nube.push_back(Nubesin);
+    }
+    return Nube;
 }
 

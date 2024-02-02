@@ -31,7 +31,6 @@ void menu::dibujar(RenderWindow& w)
 	w.draw(b_ver_puntos);
 	w.draw(jugar);
 
-
 }
 
 void menu::actualizar(Juego& j)
@@ -39,4 +38,10 @@ void menu::actualizar(Juego& j)
 	if (Keyboard::isKeyPressed(Keyboard::M)) {
 			j.cambiarEscena(new Partida);
 	}
+	j.Eventos(e);
+	if (Keyboard::isKeyPressed(Keyboard::Enter)) {
+		s_nombre = j.getNombre();
+		jugar.setString(s_nombre);
+	}
 }
+

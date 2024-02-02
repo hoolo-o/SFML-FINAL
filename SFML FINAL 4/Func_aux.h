@@ -3,6 +3,7 @@
 #include "vector"
 #include <cstdlib>
 #include <SFML/Graphics.hpp>
+#include "nubes.h"
 
 struct direccion {
 	bool arriba;
@@ -11,6 +12,8 @@ struct direccion {
 	bool derecha;
 };
 
+
+vector<Nubes> NubesBordes(int cantidad, sf::Texture* TN, sf::Texture* TR, sf::Texture* TE);
 
 std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* mapa);
 

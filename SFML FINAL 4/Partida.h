@@ -55,10 +55,14 @@ private:
 	Sprite Sbordes;
 	Texture* T = new Texture();
 	Texture* T_coin = new Texture();
+	Texture* T_nube = new Texture();
+	Texture* T_rayo = new Texture();
+	Texture* T_efect = new Texture();
 	vector<Esqueleto> ve1;
 	vector<moneda> vm1;
 	vector<CircleShape> piedras;
 	vector<piedra> lanzadas;
+	vector<Nubes> v_nube;
 	int num_esq = 2;
 	Vector2f ajuste;
 	Textos T1;
