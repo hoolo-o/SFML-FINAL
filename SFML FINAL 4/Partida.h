@@ -45,6 +45,8 @@ private:
 
 	hitBordes BORDS;
 
+	Clock reloj2;
+
 	Clock reloj_fps;
 	float delta;
 	float fps;
@@ -76,4 +78,5 @@ public:
 	Partida();
 	void actualizar(Juego& j) override;
 	void dibujar(RenderWindow& w)override;
+	~Partida();
 };

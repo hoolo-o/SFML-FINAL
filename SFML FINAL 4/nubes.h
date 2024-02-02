@@ -13,6 +13,7 @@ private:
 	RectangleShape m_hitbox_rayo;
 	RectangleShape m_efecto;
 	Vector2f m_pos;
+	Vector2f aux;
 	Clock m_reloj;
 	int danio;
 	int vel;
@@ -23,7 +24,8 @@ public:
 	void dibujar(RenderWindow& w);
 	void actualizar();
 	bool borrar();
-
+	int getDanio();
+	RectangleShape getHitbox();
 
 	Nubes() = default;
 };

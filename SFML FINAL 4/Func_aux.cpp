@@ -104,3 +104,17 @@ std::vector<Nubes> NubesBordes(int cantidad, sf::Texture* TN, sf::Texture* TR, s
     return Nube;
 }
 
+bool ColisionCirRect(const sf::RectangleShape& rect, const sf::CircleShape& cir) {
+    // Obtener el centro del círculo
+    sf::Vector2f circleCenter(cir.getPosition().x + cir.getRadius(), cir.getPosition().y + cir.getRadius());
+
+    // Calcular la distancia entre el centro del círculo y el rectángulo
+    float distX = std::abs(circleCenter.x - rect.getPosition().x - rect.getSize().x / 2.f);
+    float distY = std::abs(circleCenter.y - rect.getPosition().y - rect.getSize().y / 2.f);
+
+    // Si la distancia es mayor que la mitad del ancho o la mitad de la altura del rectángulo más el radio del círculo, no hay colisión
+    if (distX > rect.getSize().x / 2.f + cir.getRadius() || distY > rect.getSize().y / 2.f + cir.getRadius()) {
+        return false;
+    }
+    return true;
+}

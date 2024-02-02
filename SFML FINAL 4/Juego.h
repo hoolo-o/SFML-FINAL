@@ -8,10 +8,9 @@ public:
 	void jugar();
 	~Juego();
 	void cambiarEscena(Escena* nueva_escena);
-	virtual void Eventos(Event& event);
-	String getNombre();
+	Event* getEvent();
 private:
-	String nombre;
+	Event e;
 	RenderWindow m_win;
 	Escena* m_esc, * m_prox = nullptr;
 };

@@ -15,7 +15,6 @@ menu::menu()
 	jugar.setFont(fuente);
 	jugar.setFillColor(Color::Black);
 	jugar.setPosition(518, 234);
-	jugar.setString("Jugar : M");
 
 	b_ver_puntos.setScale(1.5f, 1.5f);
 	b_ver_puntos.setPosition(500,220);
@@ -35,13 +34,15 @@ void menu::dibujar(RenderWindow& w)
 
 void menu::actualizar(Juego& j)
 {
-	if (Keyboard::isKeyPressed(Keyboard::M)) {
-			j.cambiarEscena(new Partida);
-	}
-	j.Eventos(e);
 	if (Keyboard::isKeyPressed(Keyboard::Enter)) {
-		s_nombre = j.getNombre();
-		jugar.setString(s_nombre);
+		j.cambiarEscena(new Partida);
+	}
+	if (j.getEvent()->type == Event::TextEntered and fj.getElapsedTime().asSeconds()> 0.1) {
+		if (j.getEvent()->text.unicode < 128) {
+			fj.restart();
+			aux2 += static_cast<char>(j.getEvent()->text.unicode);
+			jugar.setString(aux2);
+		}
 	}
 }
 

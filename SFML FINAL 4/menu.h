@@ -10,8 +10,8 @@ private:
 	RectangleShape b_ver_puntos;
 	RectangleShape intro_nombre;
 	Event e;
-	char aux;
-	String s_nombre;
+	Clock fj;
+	String aux2;
 	Text jugar;
 	Text puntos;
 	Text nombre;

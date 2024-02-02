@@ -67,9 +67,8 @@ void Partida::actualizar(Juego& j)
 
 	if (ve1.size() == 0 and aux) {
 		reloj.restart();
-		aux = false; vende.mostrarse_switch(); }
-
-
+		aux = false; vende.mostrarse_switch(); 
+	}
 	if (ve1.size() == 0 and reloj.getElapsedTime().asSeconds()>=10) {
 		//sumar esqueletos por ronda
 		vende.mostrarse_switch();
@@ -80,6 +79,10 @@ void Partida::actualizar(Juego& j)
 		aux = true;
 	}
 	for (int x = 0; x < v_nube.size();x++) {
+		if (ColisionCirRect(v_nube[x].getHitbox(), p1.getHitbox_me()) and reloj2.getElapsedTime().asMilliseconds()>rand()%1000){
+			p1.danio(v_nube[x].getDanio());
+			reloj2.restart();
+		}
 		if (v_nube[x].borrar()) {
 			v_nube.erase(v_nube.begin() + x);
 			cout << "nube: " << x << endl;
@@ -142,6 +145,13 @@ void Partida::actualizar(Juego& j)
 			}
 		}
 	}
+	for (int x = 0; x < v_nube.size();x++) {
+		for (int y = 0;y < ve1.size(); y++) {
+			if (ColisionCirRect(v_nube[x].getHitbox(), *ve1[y].getHitBox())) {
+				ve1[y].mejorar();
+			}
+		}
+	}
 	delta = pasado.asSeconds();
 	fps = 1.0f / delta;
 	
@@ -165,5 +175,13 @@ void Partida::dibujar(RenderWindow& w)
 		w.draw(Sbordes);
 		//BORDS.dibujar(w);
 		T1.dibujar(w);
+}
+Partida::~Partida()
+{
+	delete T;
+	delete T_coin;
+	delete T_nube;
+	delete T_rayo;
+	delete T_efect;
 }
 //si

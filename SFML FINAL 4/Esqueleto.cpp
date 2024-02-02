@@ -9,6 +9,13 @@ Esqueleto::Esqueleto(float vel, float vel_atac, float vida, int danio, Vector2f 
     m_danio = danio;
     m_pos = pos;
     m_textura = TE;
+    ConvexShape tri(3);
+    tri.setPoint(0, Vector2f(10, 2.5));
+    tri.setPoint(1, Vector2f(2.5, 12.5));
+    tri.setPoint(2, Vector2f(17.5, 12.5));
+    triangulo = tri;
+    triangulo.setFillColor(Color(97, 242, 208, 255));
+
     SpriteEsqueleto.setTexture(*m_textura);
     SpriteEsqueleto.setPosition(m_pos);
     SpriteEsqueleto.setTextureRect(sf::IntRect(0, 0, 64, 64));
@@ -16,6 +23,7 @@ Esqueleto::Esqueleto(float vel, float vel_atac, float vida, int danio, Vector2f 
     hitbox.setFillColor(Color::Blue);
     hitbox.setRadius(11);
     puede_atacar = true;
+    mejorado = false;
 }
 
 void Esqueleto::actualizar()
@@ -26,6 +34,9 @@ void Esqueleto::dibujar(RenderWindow& w)
 {
     //w.draw(hitbox);
     w.draw(SpriteEsqueleto);
+    if (mejorado) {
+        w.draw(triangulo);
+    }
 }
 
 Vector2f Esqueleto::verPosicion()
@@ -84,6 +95,7 @@ void Esqueleto::perseguirJugador(const sf::Vector2f& posicionJugador) {
     SpriteEsqueleto.move(direccion * m_vel);
     //posiciona hitbox sobre el esqueleto
     hitbox.setPosition(SpriteEsqueleto.getPosition()-Vector2f(-10.0f,-10.0f));
+    triangulo.setPosition(SpriteEsqueleto.getPosition());
 }
 
 void Esqueleto::setVelocidadAleatoria(float minVel, float maxVel) {
@@ -169,4 +181,14 @@ void Esqueleto::retroceso(Vector2f pos)
     Vector2f empuje = direc_norm * mag_empuje;
     SpriteEsqueleto.move(-empuje);
 }
+
+void Esqueleto::mejorar()
+{
+    if (mejorado == false) {
+        m_vel += 0.5;
+        m_danio += 1;
+        mejorado = true;
+    }
+}
+
 

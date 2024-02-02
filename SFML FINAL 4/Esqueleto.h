@@ -12,13 +12,13 @@ private:
 	Vector2f m_pos;
 
 	CircleShape hitbox;
-
+	ConvexShape triangulo;
 	bool puede_atacar;
+	bool mejorado;
 
 	Sprite SpriteEsqueleto;
 
 	int Valor = 5;
-
 	float m_vel;
 	float m_vel_atac;
 	float m_vida;
@@ -45,4 +45,5 @@ public:
 	void ya_ataco();
 	bool get_puede_atacar();
 	void retroceso(Vector2f pos);
+	void mejorar();
 };
