@@ -32,3 +32,4 @@ bool temporizador(float tiempo);
 bool ColisionCirRect(const sf::RectangleShape& rec, const sf::CircleShape& cir);
 vector<UsuarioInfo> cargarDatosDesdeArchivo();
 void actualizarArchivo( UsuarioInfo nuevoUsuario);
+bool compararPorKills(const UsuarioInfo& a, const UsuarioInfo& b);

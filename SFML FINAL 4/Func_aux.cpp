@@ -4,6 +4,11 @@
 #include <random>
 
 
+bool compararPorKills(const UsuarioInfo& a, const UsuarioInfo& b) {
+    return a.kills > b.kills; // Cambia a < si quieres ordenar de menor a mayor
+}
+
+
 std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* mapa)
 {
     std::vector<Esqueleto> esqueletos;
@@ -17,7 +22,7 @@ std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* map
                 sf::Vector2f posini = { An * 16.0f, Al * 16.0f };
                 if (probabilidad(50) and esqueletos.size()<cantidad) {
                     std::cout << "X ";
-                    Esqueleto esqts(1, 1, 20, 1.0f, posini, TE);
+                    Esqueleto esqts(1, 1, 15, 1.0f, posini, TE);
                     esqts.setVelocidadAleatoria(0.4f, 1.0f);
                     esqueletos.push_back(esqts);
                 }

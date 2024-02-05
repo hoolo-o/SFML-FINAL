@@ -2,14 +2,19 @@
 #include <SFML/Graphics.hpp>
 #include "Escena.h"
 #include "Juego.h"
+#include "Func_aux.h"
 using namespace sf;
+
 
 class menu : public Escena {
 private:
 	RectangleShape b_Jugar;
 	RectangleShape ver_puntos;
 	RectangleShape intro_nombre;
-	Event e;
+	Texture fondo;
+	Sprite s_fondo;
+	std::string aux;
+	std::vector<UsuarioInfo> v;
 	Clock fj;
 	String aux2;
 	Text jugar;
