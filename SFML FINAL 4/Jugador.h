@@ -39,6 +39,7 @@ private:
 	std::vector<piedra> ps;
 
 	int monedas;
+	int kills;
 
 	RectangleShape danio_w;
 	bool mostrar_w_danio;
@@ -71,7 +72,9 @@ public:
 	int getMonedas();
 	piedra generar_piedra(Texture* T_piedra);
 	std::vector<piedra>& getPiedras();
-	std::string getNomnbre();
+	sf::String getNomnbre();
+	void SumKill();
+	int getKills();
 	void ya_ataco();
 
 	void poder1swith();

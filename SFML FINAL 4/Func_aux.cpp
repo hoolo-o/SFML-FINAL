@@ -3,6 +3,7 @@
 #include "nubes.h"
 #include <random>
 
+
 std::vector<Esqueleto> EsqueletosBordes(int cantidad, sf::Texture* TE, char* mapa)
 {
     std::vector<Esqueleto> esqueletos;
@@ -117,4 +118,53 @@ bool ColisionCirRect(const sf::RectangleShape& rect, const sf::CircleShape& cir)
         return false;
     }
     return true;
+}
+
+vector<UsuarioInfo> cargarDatosDesdeArchivo() {
+    vector<UsuarioInfo> usuarios;
+    ifstream archivo("Listaa.txt");
+    if (archivo.is_open()) {
+        UsuarioInfo usuario;
+        while (archivo>> usuario.usuario >> usuario.kills >> usuario.puntos) {
+            usuarios.push_back(usuario);
+        }
+        archivo.clear();
+        archivo.close();
+    }
+    for (int x = 0; x < usuarios.size();x++) {
+        cout << usuarios[x].usuario << usuarios[x].kills << usuarios[x].puntos << endl;
+    }
+    return usuarios;
+}
+
+void actualizarArchivo( UsuarioInfo nuevoUsuario) {
+    vector<UsuarioInfo> usuarios = cargarDatosDesdeArchivo();
+    bool usuarioExiste = false;
+
+    for (int x = 0;x < usuarios.size();x++) {
+        if (usuarios[x].usuario == nuevoUsuario.usuario) {
+            usuarioExiste = true;
+            if (nuevoUsuario.kills > usuarios[x].kills) {
+                usuarios[x].kills = nuevoUsuario.kills;
+                usuarios[x].puntos = nuevoUsuario.puntos;
+            }
+            break;
+        }
+    }
+
+    if (!usuarioExiste) {
+        usuarios.push_back(nuevoUsuario);
+    }
+
+    ofstream archivo("Listaa.txt");
+    archivo.clear();
+    if (archivo.is_open()) {
+        for (UsuarioInfo usuario : usuarios) {
+           archivo << usuario.usuario << " " << usuario.kills << " " << usuario.puntos << endl;
+        }
+        for (int x = 0; x < usuarios.size();x++) {
+            cout << usuarios[x].usuario << usuarios[x].kills << usuarios[x].puntos << endl;
+        }
+        archivo.close();
+    }
 }

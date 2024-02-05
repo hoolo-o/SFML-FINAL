@@ -25,7 +25,7 @@ public:
 		Texto1.setOutlineThickness(1);
 
 		Texto2.setFont(fuente);
-		Texto2.setCharacterSize(9);
+		Texto2.setCharacterSize(10);
 		Texto2.setLetterSpacing(2.0f);
 		Texto2.setFillColor(Color::Black);
 		Texto2.setOutlineColor(Color::White);

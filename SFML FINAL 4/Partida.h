@@ -40,7 +40,7 @@ private:
 	Mapa m1;
 	Sprite m1S;
 	Clock reloj;
-
+	String m_name;
 	Keyboard::Key uno, dos, tres, cuatro, cinco, seis;
 
 	hitBordes BORDS;
@@ -74,9 +74,11 @@ private:
 	bool aux;
 	bool aux2;
 	bool aux3;
+	bool a = true;
 public:
-	Partida();
+	Partida(String name);
 	void actualizar(Juego& j) override;
 	void dibujar(RenderWindow& w)override;
+	void CargarPuntajes(string getNombre, int getMonedas, int getKills);
 	~Partida();
 };

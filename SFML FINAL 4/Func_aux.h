@@ -1,9 +1,18 @@
 #pragma once
 #include "Esqueleto.h"
+#include <fstream>
+#include <sstream>
 #include "vector"
 #include <cstdlib>
 #include <SFML/Graphics.hpp>
 #include "nubes.h"
+
+struct UsuarioInfo
+{
+	string usuario;
+	int kills;
+	int puntos;
+};
 
 struct direccion {
 	bool arriba;
@@ -21,3 +30,5 @@ bool mouse(Vector2f mousePos, RectangleShape& rect);
 void hilo_tiempo(Clock& reloj, Time esperar);
 bool temporizador(float tiempo);
 bool ColisionCirRect(const sf::RectangleShape& rec, const sf::CircleShape& cir);
+vector<UsuarioInfo> cargarDatosDesdeArchivo();
+void actualizarArchivo( UsuarioInfo nuevoUsuario);

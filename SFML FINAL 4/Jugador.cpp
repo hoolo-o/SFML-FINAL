@@ -22,6 +22,7 @@ Jugador::Jugador(float vel, float vel_atac, int vida, float danio, String nombre
 	m_nombre = nombre;
 
 	monedas = 250;
+	kills = 0;
 	puede_lanzar = true;
 	puede_atacar = true;
 	mostrar_w_danio = false;
@@ -248,7 +249,7 @@ std::vector<piedra>& Jugador::getPiedras()
 	return ps;
 }
 
-string Jugador::getNomnbre()
+String Jugador::getNomnbre()
 {
 	return m_nombre;
 }
@@ -257,6 +258,16 @@ void Jugador::ya_ataco()
 {
 	puede_atacar = false;
 	m_clock3.restart();
+}
+
+void Jugador::SumKill()
+{
+	kills++;
+}
+
+int Jugador::getKills()
+{
+	return kills;
 }
 
 

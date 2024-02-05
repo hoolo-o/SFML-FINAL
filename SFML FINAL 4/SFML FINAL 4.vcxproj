@@ -50,6 +50,7 @@
     <ClInclude Include="Partida.h" />
     <ClInclude Include="piedra.h" />
     <ClInclude Include="poder.h" />
+    <ClInclude Include="Puntajes.h" />
     <ClInclude Include="Teleport.h" />
     <ClInclude Include="Textos.h" />
     <ClInclude Include="vendedor.h" />

@@ -7,7 +7,7 @@ using namespace sf;
 class menu : public Escena {
 private:
 	RectangleShape b_Jugar;
-	RectangleShape b_ver_puntos;
+	RectangleShape ver_puntos;
 	RectangleShape intro_nombre;
 	Event e;
 	Clock fj;

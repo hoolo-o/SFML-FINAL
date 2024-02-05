@@ -1,8 +1,8 @@
 #include "Partida.h"
-
-Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
+#include "menu.h"
+Partida::Partida(String name) : p1(2, 0.5f, 20, 1, m_name)
 {
-	
+	m_name = name;
 	uno = Keyboard::Num1;
 	dos = Keyboard::Num2;
 	tres = Keyboard::Num3;
@@ -29,7 +29,7 @@ Partida::Partida() : p1(2, 0.5f, 20, 1, "Jugador 1")
 	Sbordes.setColor(Color(180,180,180,180));
 	ve1 = EsqueletosBordes(num_esq, T, m1.getCampo());
 	piedras = m1.getPiedras();
-	T1.setNombre(p1.getNomnbre());
+	T1.setNombre(m_name);
 	aux = true;
 	aux2 = true;
 	aux3 = true;
@@ -116,14 +116,22 @@ void Partida::actualizar(Juego& j)
 		}
 		if (ve1[x].muerto()) {
 			//verifica si esqueletos estan muertos y elimina
+			Puntos++;
 			moneda coin(ve1[x].verPosicion(), T_coin, ve1[x].getValorEsqueleto());
 			ve1.erase(ve1.begin() + x);
+			p1.SumKill();
 			vm1.push_back(coin);
 		}
 		
 		if (p1.GetVida() <= 0) {
 			//////funcion carga puntajes
-			j.cambiarEscena(new menu);
+			UsuarioInfo u = {m_name ,p1.getKills(),p1.getMonedas()};
+			if (a) {
+				a = false;
+				actualizarArchivo(u);
+				j.cambiarEscena(new menu);
+			}
+
 		}
 	}
 
@@ -184,4 +192,6 @@ Partida::~Partida()
 	delete T_rayo;
 	delete T_efect;
 }
+
+
 //si
