@@ -5,7 +5,7 @@
 
 
 bool compararPorKills(const UsuarioInfo& a, const UsuarioInfo& b) {
-    return a.kills > b.kills; // Cambia a < si quieres ordenar de menor a mayor
+    return a.kills > b.kills;
 }
 
 

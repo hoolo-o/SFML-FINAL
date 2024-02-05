@@ -17,21 +17,6 @@
 using namespace sf;
 using namespace std;
 
-struct hitBordes {
-	RectangleShape arriba;
-	RectangleShape abajo;
-	RectangleShape izquierda;
-	RectangleShape derecha;
-
-	hitBordes() {
-		arriba.setFillColor(Color::Green);
-		arriba.setPosition(300, 300);
-		arriba.setScale(1200, 20);
-	}
-	void dibujar(RenderWindow& w) {
-		w.draw(arriba);
-	}
-};
 
 class Partida : public Escena {
 private:
@@ -43,7 +28,6 @@ private:
 	String m_name;
 	Keyboard::Key uno, dos, tres, cuatro, cinco, seis;
 
-	hitBordes BORDS;
 
 	Clock reloj2;
 

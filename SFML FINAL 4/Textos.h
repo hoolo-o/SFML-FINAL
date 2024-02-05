@@ -13,9 +13,13 @@ private:
 	Text Texto2;
 	Text Texto3;
 	Text Texto4;
+	Text Texto5;
 	Font fuente;
+	bool aux;
 public:
 	Textos() {
+		aux = false;
+
 		fuente.loadFromFile("Recursos/OstrichSans-Black.otf");
 		Texto1.setPosition(10.0f, 10.0f);
 		Texto1.setFont(fuente);
@@ -48,6 +52,15 @@ public:
 		Texto4.setOutlineThickness(0.4f);
 		Texto4.setPosition(500, 500);
 
+		Texto5.setString("VUELVE!!");
+		Texto5.setFont(fuente);
+		Texto5.setCharacterSize(50);
+		Texto5.setLetterSpacing(1.5f);
+		Texto5.setFillColor(Color::Red);
+		Texto5.setOutlineColor(Color::Black);
+		Texto5.setOutlineThickness(0.4f);
+		Texto5.setPosition(500, 350);
+
 	}
 
 	void dibujar(RenderWindow &w) {
@@ -56,6 +69,10 @@ public:
 		if (m_clock1.getElapsedTime() < seconds(0.5)) {
 			w.draw(Texto3);
 		}
+		if (aux) {
+			w.draw(Texto5);
+		}
+		aux = false;
 	}
 	void actualizar(std::vector<Esqueleto> v, int contador_ronda, int vida_p1, int monedas, int fps) {
 		ss1.str("");
@@ -68,6 +85,9 @@ public:
 	}
 	void actualizar2(Vector2f pos) {
 		Texto2.setPosition(pos);
+		if (pos.x > 1200 or pos.y > 700 or pos.x < 0 or pos.y<0) {
+			aux = true;
+		}
 	}
 	void actualizar3(Vector2f pos) {
 		m_clock1.restart();
