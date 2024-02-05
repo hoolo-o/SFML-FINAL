@@ -60,6 +60,8 @@ private:
 	Texture* T_nube = new Texture();
 	Texture* T_rayo = new Texture();
 	Texture* T_efect = new Texture();
+	Texture T_controles;
+	Sprite controles;
 	vector<Esqueleto> ve1;
 	vector<moneda> vm1;
 	vector<CircleShape> piedras;
@@ -71,9 +73,7 @@ private:
 	int Puntos = 0;
 	int contador_ronda = 1;
 	menu menu1;
-	bool aux;
-	bool aux2;
-	bool aux3;
+	bool aux, aux2, aux3, auxA;
 	bool a = true;
 public:
 	Partida(String name);

@@ -3,6 +3,7 @@
 #include "Escena.h"
 #include "Juego.h"
 #include "Func_aux.h"
+#include "Mapa.h"
 using namespace sf;
 
 

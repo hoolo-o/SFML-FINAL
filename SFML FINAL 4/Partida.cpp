@@ -9,6 +9,8 @@ Partida::Partida(String name) : p1(2, 0.5f, 20, 1, m_name)
 	cuatro = Keyboard::Num4;
 	cinco = Keyboard::Num5;
 	seis = Keyboard::Num6;
+	T_controles.loadFromFile("Imagenes/controles.png");
+	controles.setTexture(T_controles);
 	T->loadFromFile("imagenes/enemigo.png");
 	T_coin->loadFromFile("Imagenes/moneda.png");
 	T_rayo->loadFromFile("Imagenes/rayo.png");
@@ -33,10 +35,15 @@ Partida::Partida(String name) : p1(2, 0.5f, 20, 1, m_name)
 	aux = true;
 	aux2 = true;
 	aux3 = true;
+	auxA = true;
 }
 
 void Partida::actualizar(Juego& j)
 {
+	if (reloj2.getElapsedTime().asSeconds() > 6) {
+		auxA = false;
+	}
+
 	//compra poderes
 	for (int x = 0; x < v_nube.size();x++) {
 		v_nube[x].actualizar();
@@ -183,6 +190,9 @@ void Partida::dibujar(RenderWindow& w)
 		w.draw(Sbordes);
 		//BORDS.dibujar(w);
 		T1.dibujar(w);
+		if (auxA) {
+			w.draw(controles);
+		}
 }
 Partida::~Partida()
 {

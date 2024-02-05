@@ -1,4 +1,2 @@
-chau 1 250
-hola 1 255
-matiiasss 0 250
-maticapo 6 80
+maticapo 12 110
+maticpa 2 260

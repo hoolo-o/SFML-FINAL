@@ -3,6 +3,7 @@
 #include "Juego.h"
 menu::menu()
 {
+
 	v = cargarDatosDesdeArchivo();
 
 	sort(v.begin(), v.end(), compararPorKills);
@@ -26,6 +27,9 @@ menu::menu()
 	puntos.setFillColor(Color::Black);
 	for (int x = 0;x < v.size();x++) {
 		aux += v[x].usuario + " / " + std::to_string(v[x].kills) + " / " + std::to_string(v[x].puntos) + '\n';
+		if (x >= 9) {
+			break;
+		}
 	}
 	puntos.setString(aux);
 
@@ -50,21 +54,23 @@ void menu::dibujar(RenderWindow& w)
 	
 }
 
-void menu::actualizar(Juego& j)
-
-{
+void menu::actualizar(Juego& j) {
 	if (Keyboard::isKeyPressed(Keyboard::Enter)) {
 		j.cambiarEscena(new Partida(aux2));
 	}
-	if (j.getEvent()->type == Event::TextEntered and fj.getElapsedTime().asSeconds()> 0.1 and not Keyboard::isKeyPressed(Keyboard::BackSpace)) {
-		if (j.getEvent()->text.unicode < 128) {
+
+	if (j.getEvent()->type == Event::TextEntered && fj.getElapsedTime().asSeconds() > 0.1 && !Keyboard::isKeyPressed(Keyboard::BackSpace)) {
+		if (j.getEvent()->text.unicode < 128 && aux2.getSize() < 10) {
 			fj.restart();
 			aux2 += static_cast<char>(j.getEvent()->text.unicode);
 			jugar.setString(aux2);
 		}
 	}
-//	if (Keyboard::isKeyPressed(Keyboard::BackSpace) and fj.getElapsedTime().asSeconds() > 0.1) {
-//		cout << "si" << endl;
-//	}
+	else if (Keyboard::isKeyPressed(Keyboard::BackSpace) && fj.getElapsedTime().asSeconds() > 0.1 && !aux2.isEmpty()) {
+		fj.restart();
+		aux2.erase(aux2.getSize() - 1);
+		jugar.setString(aux2);
+	}
 }
+
 
