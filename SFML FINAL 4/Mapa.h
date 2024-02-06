@@ -1,5 +1,4 @@
 #pragma once
-/////////////////////terminar mapa///////////////////////////
 #include <iostream>
 #include <random>
 #include <vector>
@@ -26,7 +25,7 @@ private:
     std::vector<sf::CircleShape> hitbox_piedras;
 public:
     Mapa() {
-        //creacion de semilla aleatoria para distribuir en el mapa los biomas de forma heterogenea
+        //creacion de semilla aleatoria para distribuir en el mapa los biomas de forma balanceada
         std::random_device rd;
         //semilla
         std::mt19937 gen(rd());

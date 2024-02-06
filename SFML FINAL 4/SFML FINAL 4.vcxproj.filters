@@ -125,8 +125,5 @@
     <ClInclude Include="nubes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Puntajes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

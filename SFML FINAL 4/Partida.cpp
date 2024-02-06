@@ -20,8 +20,7 @@ Partida::Partida(String name) : p1(2, 0.5f, 20, 1, m_name)
 	m1.mostrarMapa();
 	m1.Combinar();
 	m1.Decoracion();
-
-	Pedrero p(0.2, 0.2, 1, 1, Vector2f(200, 200), T);
+	Pedrero p(0.2f, 0.2f, 1, 1, Vector2f(200, 200), T);
 	pedro = p;
 	T_nube->loadFromFile("Imagenes/nube.png");
 	v_nube = NubesBordes(3, T_nube, T_rayo, T_efect);

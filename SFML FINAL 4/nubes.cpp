@@ -8,11 +8,11 @@ Nubes::Nubes(Vector2f pos, Texture* T_nube, Texture* T_rayo, Texture* T_efect)
 	std::random_device rd;
 	std::mt19937 gen(rd());
 
-	float lower_bound = 1.0f;
-	float upper_bound = 3.0f;
+	float abajo = 1.0f;
+	float arriba = 3.0f;
 
-	std::uniform_real_distribution<float> distribution(lower_bound, upper_bound);
-	vel = distribution(gen);
+	std::uniform_real_distribution<float> distrib(abajo, arriba);
+	vel = distrib(gen);
 	m_pos = pos;
 	m_textura_nube = T_nube;
 	m_textura_rayo = T_rayo;
